@@ -1,5 +1,8 @@
 export default {
   mode: 'universal',
+
+  modern: true,
+
   /*
    ** Headers of the page
    */
@@ -61,6 +64,14 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    loaders: {
+      scss: {
+        prependData: `
+          @import "styles/variables.scss";
+        `
+      }
+    },
+    extend (config, ctx) {
+    }
   }
 }
