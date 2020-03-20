@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'can-help',
+    name: 'CanHelp',
     data () {
       return {}
     },

@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <img src="~/assets/logo.png" class="logo" alt="Logo République Française">
-    {{$t('app-title')}}
+    {{ $t('app-title') }}
   </div>
 </template>
 
