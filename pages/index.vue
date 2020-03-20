@@ -1,14 +1,26 @@
 <template>
-  <div class="container">
-    <div>
+  <b-container>
+    <b-row align-v="center">
       <h1 class="title">
-        Français à l'étranger
+        {{ $t('app-title') }}
       </h1>
       <h2 class="subtitle">
-        Plateforme de mise en relation des français bloqués à l&#39;étranger
+        {{ $t('baseline') }}
       </h2>
-    </div>
-  </div>
+    </b-row>
+    <b-row align-v="center" class="help-buttons">
+      <b-col>
+        <nuxt-link to="/forms/need-help">
+          <b-button>{{ $t('need-help') }}</b-button>
+        </nuxt-link>
+      </b-col>
+      <b-col>
+        <nuxt-link to="/forms/can-help">
+          <b-button>{{ $t('can-help') }}</b-button>
+        </nuxt-link>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -16,18 +28,15 @@
 </script>
 
 <style lang="scss">
-  .container {
-    margin: 0 auto;
-    min-height: calc(100vh - #{$header-height} - #{$footer-height});
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .row {
+    margin: 0;
+  }
+
+  .help-buttons {
     text-align: center;
   }
 
   .title {
-    font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     display: block;
     font-weight: 300;
     font-size: 3rem;
