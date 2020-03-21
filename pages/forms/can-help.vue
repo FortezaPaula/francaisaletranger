@@ -1,23 +1,25 @@
 <template>
-  <div>
-    Can help
+  <div class="form-can-help">
+    <Form postURL="/forms/can-help" titleHelps="Je peux aider pour :" />
   </div>
 </template>
 
 <script>
+  import Form from '@/components/Form'
+
   export default {
     name: 'CanHelp',
-    data () {
-      return {}
-    },
 
-    created () {
-    },
+    components: { Form },
 
-    methods: {}
+    middleware: 'can-help'
   }
 </script>
 
 <style scoped>
-
+  .form-can-help {
+    max-width: 400px;
+    margin: auto;
+    padding: 10px;
+  }
 </style>
