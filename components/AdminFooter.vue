@@ -1,7 +1,7 @@
 <template>
   <footer class="admin-footer">
     <div class="container">
-      Made with love by <nuxt-link to="https://beta.gouv.fr/" target="_blank">beta.gouv.fr</nuxt-link>
+      Made with love by <a href="https://beta.gouv.fr/" target="_blank">beta.gouv.fr</a>
     </div>
   </footer>
 </template>

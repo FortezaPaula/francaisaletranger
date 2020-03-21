@@ -2,10 +2,12 @@
   <header class="admin-header">
     <div class="container">
       <nav role="navigation" class="admin-header__navigation">
-        <nuxt-link :to="{ route: 'admin' }" class="admin-header__logo-link">
+        <nuxt-link to="/admin" class="admin-header__logo-link">
           <img src="~/assets/logo.png" alt="République Française" class="admin-header__logo-image" />
           {{ $t('app-title') }}
         </nuxt-link>
+        <nuxt-link to="/admin">Accueil</nuxt-link>
+        <nuxt-link to="/admin/helpers">Aidants</nuxt-link>
       </nav>
     </div>
   </header>
