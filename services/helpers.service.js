@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default class HelpersService {
   get api () {
-    const API_URL = process.env.VUE_APP_API_URL
+    const API_URL = process.env.NUXT_ENV_API_URL
     return axios.create({
       baseURL: `${API_URL}/Helpers`
     })
