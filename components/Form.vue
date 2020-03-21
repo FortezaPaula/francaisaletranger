@@ -1,13 +1,43 @@
 <template>
   <b-form @submit="onSubmit">
     <b-form-group label="Votre nom">
-      <b-form-input id="nom" v-model="form.nom" type="text" name="nom" placeholder="Votre nom"/>
+      <b-form-input
+        id="nom"
+        v-model="$v.form.nom.$model"
+        type="text"
+        name="nom"
+        placeholder="Votre nom"
+        :state="validateState('nom')"
+      />
+      <b-form-invalid-feedback>
+        Ce champ est obligatoire et doit faire au moins 2 caractères.
+      </b-form-invalid-feedback>
     </b-form-group>
     <b-form-group label="Votre prénom">
-      <b-form-input id="prenom" v-model="form.prenom" type="text" name="prenom" placeholder="Votre prenom"/>
+      <b-form-input
+        id="prenom"
+        v-model="$v.form.prenom.$model"
+        type="text"
+        name="prenom"
+        placeholder="Votre prenom"
+        :state="validateState('prenom')"
+      />
+      <b-form-invalid-feedback>
+        Ce champ est obligatoire et doit faire au moins 2 caractères.
+      </b-form-invalid-feedback>
     </b-form-group>
     <b-form-group label="Votre email">
-      <b-form-input id="email" v-model="form.email" type="email" name="email" placeholder="Votre email"/>
+      <b-form-input
+        id="email"
+        v-model="$v.form.email.$model"
+        type="email"
+        name="email"
+        placeholder="Votre email"
+        :state="validateState('email')"
+      />
+      <b-form-invalid-feedback>
+        Ce n'est pas un email valide.
+      </b-form-invalid-feedback>
     </b-form-group>
     <b-form-group label="Localisation actuelle">
       <div v-if="geoloc" class="geoloc">
@@ -37,21 +67,25 @@
       </div>
       <div v-else>
         <b-form-group label="Pays">
-          <b-form-select id="pays" v-model="form.position.pays" name="pays" :options="countries"/>
+          <b-form-select id="pays" v-model="form.position.pays" name="pays" :options="countries" />
         </b-form-group>
         <b-form-group label="Ville">
-          <b-form-input id="pays" v-model="form.position.ville" name="ville" type="text"/>
+          <b-form-input id="pays" v-model="form.position.ville" name="ville" type="text" />
         </b-form-group>
       </div>
     </b-form-group>
     <b-form-group :label="titleHelps">
       <b-form-checkbox-group
-        v-model="form.helpFor.selected"
+        v-model="$v.form.helpFor.selected.$model"
         :options="form.helpFor.options"
         value-field="data"
         text-field="name"
         stacked
-      />
+      >
+        <b-form-invalid-feedback :state="validateStateHelpFor('selected')">
+          Au moins un besoin doit être coché
+        </b-form-invalid-feedback>
+      </b-form-checkbox-group>
     </b-form-group>
     <br>
     <div class="button-go">
@@ -67,6 +101,7 @@
 
 <script>
   import countries from 'static/contries'
+  import { required, minLength, email, requiredIf } from 'vuelidate/lib/validators'
 
   export default {
     name: 'Form',
@@ -93,9 +128,9 @@
         pendingGeoloc: false,
         requestSend: false,
         form: {
-          nom: '',
-          prenom: '',
-          email: '',
+          nom: undefined,
+          prenom: undefined,
+          email: undefined,
           position: {
             pays: '',
             ville: '',
@@ -114,6 +149,42 @@
         }
       }
     },
+
+    validations: {
+      form: {
+        nom: {
+          required,
+          minLength: minLength(2)
+        },
+        prenom: {
+          required,
+          minLength: minLength(2)
+        },
+        email: {
+          required,
+          email
+        },
+        helpFor: {
+          selected: {
+            required,
+            minLength: minLength(1)
+          }
+        },
+        position: {
+          latitude: {
+            required: requiredIf(function () {
+              return this.geoloc
+            })
+          },
+          pays: {
+            required: requiredIf(function () {
+              return !this.geoloc
+            })
+          }
+        }
+      }
+    },
+
     mounted () {
       if ('geolocation' in navigator) {
         this.geoloc = true
@@ -121,6 +192,16 @@
     },
 
     methods: {
+      validateState (name) {
+        const { $dirty, $error } = this.$v.form[name]
+        return $dirty ? !$error : null
+      },
+
+      validateStateHelpFor (name) {
+        const { $dirty, $error } = this.$v.form.helpFor[name]
+        return $dirty ? !$error : null
+      },
+
       getGeoloc () {
         this.pendingGeoloc = true
 
@@ -133,6 +214,12 @@
 
       onSubmit (event) {
         event.preventDefault()
+
+        this.$v.form.$touch()
+
+        if (this.$v.form.$anyError) {
+          return
+        }
 
         this.$axios.post(this.postURL, {
           ...this.form,
