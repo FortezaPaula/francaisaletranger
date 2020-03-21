@@ -58,7 +58,7 @@
       <b-button v-if="!requestSend" type="submit" variant="primary">
         S'inscrire
       </b-button>
-      <div v-else>
+      <div v-else class="good-send">
         Bien reçu !!
       </div>
     </div>
@@ -75,6 +75,10 @@
       postURL: {
         type: String,
         default: '/'
+      },
+      afterURL: {
+        type: String,
+        default: null
       },
       titleHelps: {
         type: String,
@@ -130,11 +134,19 @@
       onSubmit (event) {
         event.preventDefault()
 
-        this.$axios.$post(this.postURL, {
+        this.$axios.post(this.postURL, {
           ...this.form,
           helpFor: { selected: this.form.helpFor.selected }
-        }).then(() => {
-          this.requestSend = true
+        }).then((response) => {
+          if (response.status === 200) {
+            if (this.afterURL !== null) {
+              this.$router.push({
+                path: this.afterURL
+              })
+            } else {
+              this.requestSend = true
+            }
+          }
         })
       }
     }
@@ -148,6 +160,12 @@
 
   legend {
     font-weight: bold;
+  }
+
+  .good-send {
+    color: green;
+    font-weight: bold;
+    font-size: 1.5rem;
   }
 
   .geoloc {
