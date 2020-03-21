@@ -22,7 +22,7 @@
     </b-row>
     <b-row align-v="center" class="help-buttons">
       <b-col cols="6">
-        <nuxt-link to="/need-help/dashboard" v-if="needHelp">
+        <nuxt-link to="/need-help/dashboard">
           <div class="already-help">
             J'ai déjà une demande
           </div>
@@ -31,7 +31,7 @@
       <b-col cols="6">
         <nuxt-link to="/forms/can-help" v-if="canHelp">
           <div class="already-help">
-            Je mets à jour mes capacités d'aide
+            {{ $t('can-help-update') }}
           </div>
         </nuxt-link>
       </b-col>
@@ -45,17 +45,13 @@
 
     data () {
       return {
-        canHelp: false,
-        needHelp: false
+        canHelp: false
       }
     },
 
-    beforeMount () {
+    mounted () {
       if (localStorage.myInfos_can) {
         this.canHelp = true
-      }
-      if (localStorage.myInfos_need) {
-        this.needHelp = true
       }
     }
   }

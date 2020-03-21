@@ -149,7 +149,6 @@
         }
       }
     },
-
     validations: {
       form: {
         nom: {
@@ -188,6 +187,9 @@
     mounted () {
       if ('geolocation' in navigator) {
         this.geoloc = true
+      }
+      if (this.typeForm === 'can' && localStorage.myInfos_can) {
+        this.form = JSON.parse(localStorage.myInfos_can)
       }
     },
 
