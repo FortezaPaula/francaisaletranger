@@ -1,13 +1,10 @@
 import axios from 'axios'
 
 export default class HelpersService {
-  constructor ({ apiUrl }) {
-    this.apiUrl = apiUrl
-  }
-
   get api () {
+    const API_URL = process.env.VUE_APP_API_URL
     return axios.create({
-      baseURL: `${this.apiUrl}/Helpers`
+      baseURL: `${API_URL}/Helpers`
     })
   }
 
