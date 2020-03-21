@@ -16,6 +16,13 @@
           GitHub
         </a>
       </b-col>
+      <b-col>
+        <div>
+          <b-link href="/faq">
+            FAQ
+          </b-link>
+        </div>
+      </b-col>
     </b-row>
   </b-container>
 </template>
