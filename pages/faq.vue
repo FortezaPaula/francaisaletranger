@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="faq">
     <section class="no-padding">
       <header>
         <h4>FAQ - Français à l’étranger : Comment réagir face à la crise du Covid-19 ?</h4>
@@ -130,3 +130,11 @@
     </div>
   </div>
 </template>
+
+<style>
+  .faq {
+    padding: 10px;
+    max-width: 800px;
+    margin: auto;
+  }
+</style>
