@@ -1,6 +1,6 @@
 <template>
   <div class="form-need-help">
-    <Form post-u-r-l="/forms/need-help" title-helps="J'ai besoin :" after-u-r-l="/need-help/dashboard" />
+    <Form post-u-r-l="/forms/need-help" typeForm="need" title-helps="J'ai besoin :" after-u-r-l="/need-help/dashboard"/>
   </div>
 </template>
 
@@ -15,7 +15,7 @@
     middleware: 'need-help',
 
     beforeMount () {
-      if (localStorage.myInfos) {
+      if (localStorage.myInfos_need) {
         this.$router.push({ path: '/need-help/dashboard' })
       }
     }

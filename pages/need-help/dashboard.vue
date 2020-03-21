@@ -43,10 +43,10 @@
     },
 
     beforeMount () {
-      if (!localStorage.myInfos) {
+      if (!localStorage.myInfos_need) {
         this.$router.push({ path: '/forms/need-help' })
       } else {
-        this.myInfos = JSON.parse(localStorage.myInfos)
+        this.myInfos = JSON.parse(localStorage.myInfos_need)
       }
     },
 

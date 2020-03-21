@@ -1,6 +1,6 @@
 <template>
   <div class="form-can-help">
-    <Form post-u-r-l="/forms/can-help" title-helps="Je peux aider pour :" after-u-r-l="/forms/can-help/finish" />
+    <Form post-u-r-l="/forms/can-help" typeForm="can" title-helps="Je peux aider pour :" after-u-r-l="/forms/can-help/finish" />
   </div>
 </template>
 

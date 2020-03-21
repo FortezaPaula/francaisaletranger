@@ -112,6 +112,10 @@
         type: String,
         default: '/'
       },
+      typeForm: {
+        type: String,
+        default: 'need'
+      },
       afterURL: {
         type: String,
         default: null
@@ -218,13 +222,22 @@
         }
 
         const sendedData = {
-          ...this.form,
-          helpFor: { selected: this.form.helpFor.selected }
+          nom: this.form.nom,
+          prenom: this.form.prenom,
+          email: this.form.email,
+          position: this.form.position,
+          gps_coordinates: {
+            lat: this.form.position.latitude,
+            lng: this.form.position.longitude
+          },
+          nombre_hebergement: this.form.helpFor.selected.includes('hebergement') ? 1 : 0,
+          approvisionnement: this.form.helpFor.selected.includes('approvisionnement'),
+          autres: this.form.helpFor.selected.includes('autres')
         }
 
         this.$axios.post(this.postURL, sendedData).then((response) => {
           if (response.status === 200) {
-            localStorage.setItem('myInfos', JSON.stringify(sendedData))
+            localStorage.setItem('myInfos_' + this.typeForm, JSON.stringify(this.form))
 
             if (this.afterURL !== null) {
               this.$router.push({
