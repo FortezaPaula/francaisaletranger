@@ -55,11 +55,11 @@
         />
       </b-form-group>
       <br>
-      <!--      <div class="button-go">-->
-      <!--        <b-button type="submit" variant="primary">-->
-      <!--          S'inscire-->
-      <!--        </b-button>-->
-      <!--      </div>-->
+      <div class="button-go">
+        <b-button type="submit" variant="primary">
+          S'inscire
+        </b-button>
+      </div>
     </b-form>
   </div>
 </template>
@@ -69,6 +69,8 @@
 
   export default {
     name: 'NeedHelp',
+
+    middleware: 'need-help',
 
     data () {
       return {
@@ -117,7 +119,11 @@
 
       onSubmit (event) {
         event.preventDefault()
-        console.log(this.form)
+
+        this.$axios.$post('/forms/need-help', {
+          ...this.form,
+          helpFor: { selected: this.form.helpFor.selected }
+        })
       }
     }
   }

@@ -1,3 +1,5 @@
+import bodyParser from 'body-parser'
+
 export default {
   mode: 'universal',
 
@@ -88,5 +90,13 @@ export default {
     },
     extend (config, ctx) {
     }
-  }
+  },
+
+  serverMiddleware: [
+    bodyParser.json(),
+    {
+      path: '/api/health',
+      handler: 'api/health'
+    }
+  ]
 }
