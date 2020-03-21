@@ -1,5 +1,5 @@
 <template>
-  <b-container class="footer">
+  <div class="footer">
     <b-row>
       <b-col>
         <a
@@ -24,7 +24,7 @@
         </div>
       </b-col>
     </b-row>
-  </b-container>
+  </div>
 </template>
 
 <script>

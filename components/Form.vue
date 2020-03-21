@@ -102,6 +102,7 @@
 <script>
   import countries from 'static/contries'
   import { required, minLength, email, requiredIf } from 'vuelidate/lib/validators'
+  import availableHelpers from '../helpers/availableHelpers'
 
   export default {
     name: 'Form',
@@ -139,12 +140,7 @@
           },
           helpFor: {
             selected: [],
-            options: [
-              { name: 'Hébergement', data: 'hebergement' },
-              { name: 'Garde d\'enfant', data: 'enfants' },
-              { name: 'Approvisionnement (alimentaire, hygiène)', data: 'approvisionnement' },
-              { name: 'Autre (accompagnement, soutien, etc.) ', data: 'autre' }
-            ]
+            options: availableHelpers()
           }
         }
       }
@@ -221,11 +217,15 @@
           return
         }
 
-        this.$axios.post(this.postURL, {
+        const sendedData = {
           ...this.form,
           helpFor: { selected: this.form.helpFor.selected }
-        }).then((response) => {
+        }
+
+        this.$axios.post(this.postURL, sendedData).then((response) => {
           if (response.status === 200) {
+            localStorage.setItem('myInfos', JSON.stringify(sendedData))
+
             if (this.afterURL !== null) {
               this.$router.push({
                 path: this.afterURL

@@ -20,6 +20,15 @@
         </nuxt-link>
       </b-col>
     </b-row>
+    <b-row align-v="center" class="help-buttons">
+      <b-col cols="6">
+        <nuxt-link to="/need-help/dashboard">
+          <div class="already-help">
+            J'ai déjà une demande
+          </div>
+        </nuxt-link>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
@@ -34,6 +43,10 @@
 
   .help-buttons {
     text-align: center;
+
+    .already-help {
+      margin-top: 20px;
+    }
   }
 
   .title {
