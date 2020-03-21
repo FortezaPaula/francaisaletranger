@@ -1,7 +1,7 @@
 {
   "name": "francaisaletranger",
   "version": "1.0.0",
-  "description": "Plateforme de mise en relation des français bloqués à l&#39;étranger",
+  "description": "Plateforme de mise en relation pour les français bloqués à l'étranger",
   "author": "Xavier Julien",
   "private": true,
   "scripts": {
