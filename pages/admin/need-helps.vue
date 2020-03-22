@@ -85,6 +85,22 @@
         if (this.queryParams.sort && this.queryParams.sort.length > 0) {
           filter.order = `${this.queryParams.sort[0].name} ${this.queryParams.sort[0].order === 'asc' ? 'ASC' : 'DESC'}`
         }
+        if (this.queryParams.filters && this.queryParams.filters.length > 0) {
+          const conditions = []
+          console.log(this.queryParams.filters)
+          for (let index = 0; index < this.queryParams.filters.length; index++) {
+            const filter = this.queryParams.filters[index]
+            if (filter.name === 'id') {
+              conditions.push({ id: filter.text })
+            }
+            if (['nom', 'prenom', 'email'].includes(filter.name)) {
+              const condition = {}
+              condition[filter.name] = { like: `%${filter.text}%`, options: 'i' }
+              conditions.push(condition)
+            }
+          }
+          filter.where = { and: conditions }
+        }
         axios.get(`${this.$env.VUE_APP_API_URL}/NeedHelps`, {
           params: {
             filter
