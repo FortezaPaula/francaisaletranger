@@ -103,5 +103,23 @@ export default {
       path: '/api/health',
       handler: 'api/health'
     }
-  ]
+  ],
+  /* PWA Config */
+  pwa: {
+    meta: {
+      name: 'Solidarité des Français de l’étranger',
+      theme_color: '#88cedb',
+      lang: 'fr'
+    },
+    manifest: {
+      name: 'Solidarité des Français de l’étranger',
+      short_name: 'Solidarité FDE',
+      lang: 'fr',
+      start_url: '/',
+      display: 'fullscreen',
+      orientation: 'portrait',
+      background_color: '#FFF',
+      theme_color: '#88cedb'
+    }
+  }
 }
