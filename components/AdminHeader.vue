@@ -69,7 +69,7 @@
     }
   }
   .admin-header__logo-image {
-    width: 100px;
+    width: 6.25rem;
   }
   .admin-header__baseline {
     display: inline-block;
