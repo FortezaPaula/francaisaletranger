@@ -21,13 +21,7 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  /*
-   ** Environment variables
-   */
-  env: {
-    baseUrl: process.env.BASE_URL,
-    apiUrl: process.env.NUXT_ENV_API_URL
-  },
+
   /*
    ** Customize the progress-bar color
    */
@@ -75,6 +69,12 @@ export default {
             en: require('./locales/en.json')
           }
         }
+      }
+    ],
+    [
+      'nuxt-env',
+      {
+        keys: []
       }
     ]
   ],

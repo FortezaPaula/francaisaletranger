@@ -3,7 +3,7 @@ import axios from 'axios'
 export default class HelpersService {
   get api () {
     return axios.create({
-      baseURL: `${process.env.apiUrl}/Helpers`
+      baseURL: `${this.$env.VUE_APP_API_URL}/Helpers`
     })
   }
 

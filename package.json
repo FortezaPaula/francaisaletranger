@@ -21,6 +21,7 @@
     "bootstrap-vue": "^2.0.0",
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
+    "nuxt-env": "^0.1.0",
     "nuxt-i18n": "^6.6.1",
     "sass-loader": "^8.0.2",
     "vuelidate": "^0.7.5"
