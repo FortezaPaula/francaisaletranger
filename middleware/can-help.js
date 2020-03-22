@@ -1,6 +1,8 @@
-const canHelpMiddleware = ({ req, res, $axios, redirect }) => {
+import axios from 'axios'
+
+const canHelpMiddleware = ({ req, res, app }) => {
   if (process.server && req.method === 'POST') {
-    return $axios.post(this.$env.VUE_APP_API_URL + '/Helpers', req.body)
+    return axios.post(app.$env.VUE_APP_API_URL + '/Helpers', req.body)
       .then((response) => {
         res.statusCode = response.status
         res.end()

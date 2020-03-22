@@ -100,6 +100,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import countries from 'static/contries'
   import { required, minLength, email, requiredIf } from 'vuelidate/lib/validators'
   import availableHelpers from '../helpers/availableHelpers'
@@ -237,7 +238,7 @@
           autres: this.form.helpFor.selected.includes('autres')
         }
 
-        this.$axios.post(this.postURL, sendedData).then((response) => {
+        axios.post(this.postURL, sendedData).then((response) => {
           if (response.status === 200) {
             localStorage.setItem('myInfos_' + this.typeForm, JSON.stringify(this.form))
 
