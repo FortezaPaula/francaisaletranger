@@ -15,7 +15,14 @@
   import AdminHeader from '../components/AdminHeader'
 
   export default {
-    components: { AdminFooter, AdminHeader }
+    components: { AdminFooter, AdminHeader },
+    head () {
+      return {
+        script: [
+          { src: 'https://kit.fontawesome.com/5439b0dec4.js', crossorigin: 'anonymous' }
+        ]
+      }
+    }
   }
 </script>
 

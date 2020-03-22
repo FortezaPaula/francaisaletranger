@@ -8,6 +8,18 @@
       @on-change-query="onChangeQuery"
       :show-loader="showLoader"
       :total-rows="total_rows">
+      <template slot="sort-asc-icon">
+        <i class="admin-need-helps__sorting-icon fas fa-sort-up"></i>
+      </template>
+      <template slot="sort-desc-icon">
+        <i class="admin-need-helps__sorting-icon fas fa-sort-down"></i>
+      </template>
+      <template slot="no-sort-icon">
+        <i class="admin-need-helps__sorting-icon fas fa-sort"></i>
+      </template>
+      <template slot="empty-results">
+        Aucun résultat
+      </template>
     </vue-bootstrap4-table>
   </div>
 </template>
@@ -29,6 +41,8 @@
               type: 'simple'
             },
             sort: true,
+            column_text_alignment: 'text-right',
+            row_text_alignment: 'text-right',
             uniqueId: true
           },
           {
@@ -37,6 +51,8 @@
             filter: {
               type: 'simple'
             },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
             sort: true
           },
           {
@@ -45,6 +61,8 @@
             filter: {
               type: 'simple'
             },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
             sort: true
           },
           {
@@ -53,12 +71,20 @@
             filter: {
               type: 'simple'
             },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
             sort: true
           }
         ],
         config: {
           server_mode: true,
-          loaderText: 'Chargement…'
+          loaderText: 'Chargement…',
+          per_page: 20,
+          highlight_row_hover_color: '#ffa',
+          global_search: {
+            placeholder: '',
+            per_page_options: [10, 20, 50]
+          }
         },
         queryParams: {
           sort: [],
@@ -126,4 +152,35 @@
 </script>
 
 <style lang="scss">
+  .admin-need-helps__sorting-icon {
+    margin-left: 1rem;
+  }
+  .card-header {
+    display: none;
+  }
+  .vbt-table-tools th {
+    border-top: none;
+    padding: 0;
+  }
+  .vbt-column-header {
+    &:hover {
+      background-color: #ffa;
+    }
+  }
+  .vbt-header-row {
+    display: block;
+    > .col-md-4 {
+      max-width: 100%;
+    }
+    > .col-md-8 {
+      display: none;
+    }
+    .btn-group {
+      float: right;
+    }
+  }
+  .vbt-global-search {
+    display: block;
+    //margin-right: 2rem;
+  }
 </style>
