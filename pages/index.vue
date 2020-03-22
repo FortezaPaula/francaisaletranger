@@ -29,7 +29,7 @@
           <br>
           <br>
           <div class="already-help">
-            J'ai déjà une demande
+            {{ $t('need-help-already-exists') }}
           </div>
         </nuxt-link>
       </b-col>
@@ -40,12 +40,12 @@
           Vous pouvez proposer de l’aide pour faire des courses dans votre quartier ou pour un réapprovisionnement en
           produits de première nécessité ?
         </p>
-        <nuxt-link to="/forms/can-help">
+        <nuxt-link to="/can-help/dashboard">
           <b-button variant="success">
             {{ $t('can-help') }}
           </b-button>
         </nuxt-link>
-        <nuxt-link v-if="canHelp" to="/forms/can-help">
+        <nuxt-link v-if="canHelp" to="/can-help/dashboard">
           <br>
           <br>
           <div class="already-help">

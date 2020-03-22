@@ -22,7 +22,7 @@
     </p>
     <Form
       class="form"
-      post-u-r-l="/forms/can-help"
+      post-u-r-l="/api/can-help"
       type-form="can"
       title-helps="Je peux aider pour :"
       after-u-r-l="/forms/can-help/finish"
@@ -36,9 +36,7 @@
   export default {
     name: 'CanHelp',
 
-    components: { Form },
-
-    middleware: 'can-help'
+    components: { Form }
   }
 </script>
 

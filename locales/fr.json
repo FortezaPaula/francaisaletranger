@@ -2,6 +2,8 @@
   "app-title": "Solidarité des Français de l’étranger",
   "baseline": "Plateforme de mise en relation pour les français bloqués à l'étranger",
   "need-help": "Demander de l’aide",
+  "need-help-already-exists": "J'ai déjà une demande",
   "can-help": "Proposer mon aide",
-  "can-help-update": "Je mets à jour mes capacités d'aide"
+  "can-help-update": "Je mets à jour mes capacités d'aide",
+  "info-banner-user-information": "Merci de garder le même appareil pour consulter ce site. C'est votre appareil qui permet de vous\n identifier automatiquement."
 }

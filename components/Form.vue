@@ -134,6 +134,7 @@
         pendingGeoloc: false,
         requestSend: false,
         form: {
+          id: undefined,
           nom: undefined,
           prenom: undefined,
           email: undefined,
@@ -189,9 +190,6 @@
       if ('geolocation' in navigator) {
         this.geoloc = true
       }
-      if (this.typeForm === 'can' && localStorage.myInfos_can) {
-        this.form = JSON.parse(localStorage.myInfos_can)
-      }
     },
 
     methods: {
@@ -240,6 +238,7 @@
 
         axios.post(this.postURL, sendedData).then((response) => {
           if (response.status === 200) {
+            this.form.id = response.data.id
             localStorage.setItem('myInfos_' + this.typeForm, JSON.stringify(this.form))
 
             if (this.afterURL !== null) {

@@ -4,8 +4,7 @@
       <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="deleteInfoBanner">
         <span aria-hidden="true">&times;</span>
       </button>
-      Merci de garder le même appareil pour consulter ce site. C'est votre appareil qui permet de vous
-      identifier automatiquement.
+      {{ $t('info-banner-user-information') }}
     </div>
     <h3>Tableau de bord</h3>
     <div>
