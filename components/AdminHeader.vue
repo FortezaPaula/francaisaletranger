@@ -12,17 +12,18 @@
       <nav role="navigation" class="admin-header__navigation">
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <nuxt-link to="/admin" class="nav-link">
+            <nuxt-link to="/admin" class="nav-link admin-header__nav-link">
               Accueil
             </nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/admin/helpers" class="nav-link">
-              Offres d’aide
-            </nuxt-link>
-          </li><li class="nav-item">
-            <nuxt-link to="/admin/need-helps" class="nav-link">
+            <nuxt-link to="/admin/need-helps" class="nav-link admin-header__nav-link">
               Demandes d’aide
+            </nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link to="/admin/helpers" class="nav-link admin-header__nav-link">
+              Offres d’aide
             </nuxt-link>
           </li>
         </ul>
@@ -58,6 +59,9 @@
     .nav-item {
       margin-left: .5rem;
     }
+  }
+  .admin-header__nav-link {
+    background-color: white;
   }
   .admin-header__logo {
     float: left;

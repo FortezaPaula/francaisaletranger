@@ -20,6 +20,12 @@
       <template slot="empty-results">
         Aucun résultat
       </template>
+      <template slot="refresh-button-text">
+        <i class="fas fa-sync-alt"></i> Rafraîchir
+      </template>
+      <template slot="reset-button-text">
+        <i class="fas fa-broom"></i> Réinitialiser
+      </template>
     </vue-bootstrap4-table>
   </div>
 </template>
@@ -74,6 +80,26 @@
             column_text_alignment: 'text-left',
             row_text_alignment: 'text-left',
             sort: true
+          },
+          {
+            label: '🏠',
+            name: 'nombre_hebergement',
+            filter: {
+              type: 'simple'
+            },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
+          },
+          {
+            label: '🍔',
+            name: 'approvisionnement',
+            filter: {
+              type: 'simple'
+            },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
           }
         ],
         config: {
@@ -111,17 +137,30 @@
         if (this.queryParams.sort && this.queryParams.sort.length > 0) {
           filter.order = `${this.queryParams.sort[0].name} ${this.queryParams.sort[0].order === 'asc' ? 'ASC' : 'DESC'}`
         }
-        if (this.queryParams.filters && this.queryParams.filters.length > 0) {
+        if (this.queryParams.global_search && this.queryParams.global_search.length > 0) {
           const conditions = []
-          console.log(this.queryParams.filters)
+          const fields = ['nom', 'prenom', 'email']
+          for (let index = 0; index < fields.length; index++) {
+            const condition = {}
+            condition[fields[index]] = { like: `%${this.queryParams.global_search}%`, options: 'i' }
+            conditions.push(condition)
+          }
+          filter.where = { or: conditions }
+        } else if (this.queryParams.filters && this.queryParams.filters.length > 0) {
+          const conditions = []
           for (let index = 0; index < this.queryParams.filters.length; index++) {
             const filter = this.queryParams.filters[index]
-            if (filter.name === 'id') {
+            if (['id'].includes(filter.name)) {
               conditions.push({ id: filter.text })
             }
-            if (['nom', 'prenom', 'email'].includes(filter.name)) {
+            if (['nom', 'prenom', 'email', 'approvisionnement'].includes(filter.name)) {
               const condition = {}
               condition[filter.name] = { like: `%${filter.text}%`, options: 'i' }
+              conditions.push(condition)
+            }
+            if (['nombre_hebergement'].includes(filter.name)) {
+              const condition = {}
+              condition[filter.name] = { gte: filter.text }
               conditions.push(condition)
             }
           }
@@ -140,7 +179,6 @@
           console.log(error)
         })
       }
-
     },
     components: {
       VueBootstrap4Table
@@ -181,6 +219,8 @@
   }
   .vbt-global-search {
     display: block;
-    //margin-right: 2rem;
+  }
+  .vbt-table-wrapper tbody .table-active .form-group {
+    margin-bottom: 0;
   }
 </style>

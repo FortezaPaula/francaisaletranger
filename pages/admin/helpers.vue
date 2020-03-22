@@ -1,71 +1,226 @@
 <template>
-  <div class="admin-helpers">
+  <div class="admin-helps">
     <h1>Offres d’aide</h1>
-    <div v-if="hasHelpers" class="table-responsive">
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th scope="col">
-              #
-            </th>
-            <th scope="col">
-              Nom
-            </th>
-            <th scope="col">
-              Prénom
-            </th>
-            <th scope="col">
-              E-mail
-            </th>
-            <th scope="col">
-              Localisation
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="helper in helpers" :key="helper.id">
-            <th scope="row">
-              {{ helper.id }}
-            </th>
-            <td>{{ helper.nom }}</td>
-            <td>{{ helper.prenom }}</td>
-            <td>{{ helper.email }}</td>
-            <td>{{ formatPosition(helper.position) }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <vue-bootstrap4-table
+      :rows="rows"
+      :columns="columns"
+      :config="config"
+      @on-change-query="onChangeQuery"
+      :show-loader="showLoader"
+      :total-rows="total_rows">
+      <template slot="sort-asc-icon">
+        <i class="admin-helps__sorting-icon fas fa-sort-up"></i>
+      </template>
+      <template slot="sort-desc-icon">
+        <i class="admin-helps__sorting-icon fas fa-sort-down"></i>
+      </template>
+      <template slot="no-sort-icon">
+        <i class="admin-helps__sorting-icon fas fa-sort"></i>
+      </template>
+      <template slot="empty-results">
+        Aucun résultat
+      </template>
+      <template slot="refresh-button-text">
+        <i class="fas fa-sync-alt"></i> Rafraîchir
+      </template>
+      <template slot="reset-button-text">
+        <i class="fas fa-broom"></i> Réinitialiser
+      </template>
+    </vue-bootstrap4-table>
   </div>
 </template>
 
 <script>
-  import HelpersService from '@/services/helpers.service'
+  import axios from 'axios'
+  import VueBootstrap4Table from 'vue-bootstrap4-table'
 
   export default {
     layout: 'admin',
     data () {
       return {
-        hasHelpers: false,
-        helpers: []
+        rows: [],
+        columns: [
+          {
+            label: '#',
+            name: 'id',
+            filter: {
+              type: 'simple'
+            },
+            sort: true,
+            column_text_alignment: 'text-right',
+            row_text_alignment: 'text-right',
+            uniqueId: true
+          },
+          {
+            label: 'Nom',
+            name: 'nom',
+            filter: {
+              type: 'simple'
+            },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
+          },
+          {
+            label: 'Prénom',
+            name: 'prenom',
+            filter: {
+              type: 'simple'
+            },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
+          },
+          {
+            label: 'E-mail',
+            name: 'email',
+            filter: {
+              type: 'simple'
+            },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
+          },
+          {
+            label: '🏠',
+            name: 'nombre_hebergement',
+            filter: {
+              type: 'simple'
+            },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
+          },
+          {
+            label: '🍔',
+            name: 'approvisionnement',
+            filter: {
+              type: 'simple'
+            },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
+          }
+        ],
+        config: {
+          server_mode: true,
+          loaderText: 'Chargement…',
+          per_page: 20,
+          highlight_row_hover_color: '#ffa',
+          global_search: {
+            placeholder: '',
+            per_page_options: [10, 20, 50]
+          }
+        },
+        queryParams: {
+          sort: [],
+          filters: [],
+          global_search: '',
+          per_page: 10,
+          page: 1
+        },
+        total_rows: 0,
+        showLoader: true
       }
-    },
-    mounted () {
-      this.fetchHelpers()
     },
     methods: {
-      async fetchHelpers () {
-        this.helpers = await new HelpersService(this.$env.VUE_APP_API_URL).get()
-        this.hasHelpers = this.helpers && this.helpers.length > 0
+      onChangeQuery (queryParams) {
+        this.queryParams = queryParams
+        this.showLoader = true
+        this.fetchData()
       },
-      formatPosition (position) {
-        if (position.latitude && position.longitude) {
-          return `${position.latitude}, ${position.longitude}`
+      fetchData () {
+        const self = this
+        const filter = {}
+        filter.limit = this.queryParams.per_page
+        filter.offset = (this.queryParams.page - 1) * this.queryParams.per_page
+        if (this.queryParams.sort && this.queryParams.sort.length > 0) {
+          filter.order = `${this.queryParams.sort[0].name} ${this.queryParams.sort[0].order === 'asc' ? 'ASC' : 'DESC'}`
         }
-        return ''
+        if (this.queryParams.global_search && this.queryParams.global_search.length > 0) {
+          const conditions = []
+          const fields = ['nom', 'prenom', 'email']
+          for (let index = 0; index < fields.length; index++) {
+            const condition = {}
+            condition[fields[index]] = { like: `%${this.queryParams.global_search}%`, options: 'i' }
+            conditions.push(condition)
+          }
+          filter.where = { or: conditions }
+        } else if (this.queryParams.filters && this.queryParams.filters.length > 0) {
+          const conditions = []
+          for (let index = 0; index < this.queryParams.filters.length; index++) {
+            const filter = this.queryParams.filters[index]
+            if (['id'].includes(filter.name)) {
+              conditions.push({ id: filter.text })
+            }
+            if (['nom', 'prenom', 'email', 'approvisionnement'].includes(filter.name)) {
+              const condition = {}
+              condition[filter.name] = { like: `%${filter.text}%`, options: 'i' }
+              conditions.push(condition)
+            }
+            if (['nombre_hebergement'].includes(filter.name)) {
+              const condition = {}
+              condition[filter.name] = { gte: filter.text }
+              conditions.push(condition)
+            }
+          }
+          filter.where = { and: conditions }
+        }
+        axios.get(`${this.$env.VUE_APP_API_URL}/Helpers`, {
+          params: {
+            filter
+          }
+        }).then(function (response) {
+          self.rows = response.data
+          self.total_rows = parseInt(response.headers['x-total-count'])
+          self.showLoader = false
+        }).catch(function (error) {
+          self.showLoader = false
+          console.log(error)
+        })
       }
+    },
+    components: {
+      VueBootstrap4Table
+    },
+    mounted () {
+      this.fetchData()
     }
   }
 </script>
 
 <style lang="scss">
+  .admin-helps__sorting-icon {
+    margin-left: 1rem;
+  }
+  .card-header {
+    display: none;
+  }
+  .vbt-table-tools th {
+    border-top: none;
+    padding: 0;
+  }
+  .vbt-column-header {
+    &:hover {
+      background-color: #ffa;
+    }
+  }
+  .vbt-header-row {
+    display: block;
+    > .col-md-4 {
+      max-width: 100%;
+    }
+    > .col-md-8 {
+      display: none;
+    }
+    .btn-group {
+      float: right;
+    }
+  }
+  .vbt-global-search {
+    display: block;
+  }
+  .vbt-table-wrapper tbody .table-active .form-group {
+    margin-bottom: 0;
+  }
 </style>
