@@ -46,7 +46,7 @@
 <style lang="scss">
   .admin-header {
     border-bottom: 1px solid #ddd;
-    background-color: #eee;
+    background-color: #eff1f5;
     height: $admin-header-height;
   }
   .admin-header__container {

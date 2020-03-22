@@ -1,6 +1,5 @@
 <template>
-  <div class="admin-need-helps">
-    <h1>Demandes d’aide</h1>
+  <div class="admin-helper-list">
     <vue-bootstrap4-table
       :rows="rows"
       :columns="columns"
@@ -9,13 +8,13 @@
       :show-loader="showLoader"
       :total-rows="total_rows">
       <template slot="sort-asc-icon">
-        <i class="admin-need-helps__sorting-icon fas fa-sort-up"></i>
+        <i class="admin-helper-list__sorting-icon fas fa-sort-up"></i>
       </template>
       <template slot="sort-desc-icon">
-        <i class="admin-need-helps__sorting-icon fas fa-sort-down"></i>
+        <i class="admin-helper-list__sorting-icon fas fa-sort-down"></i>
       </template>
       <template slot="no-sort-icon">
-        <i class="admin-need-helps__sorting-icon fas fa-sort"></i>
+        <i class="admin-helper-list__sorting-icon fas fa-sort"></i>
       </template>
       <template slot="empty-results">
         Aucun résultat
@@ -143,9 +142,9 @@
       onChangeQuery (queryParams) {
         this.queryParams = queryParams
         this.showLoader = true
-        this.fetchData()
+        this.fetchNeeder()
       },
-      fetchData () {
+      fetchNeeder () {
         const self = this
         const filter = {}
         filter.limit = this.queryParams.per_page
@@ -187,7 +186,7 @@
           }
           filter.where = { and: conditions }
         }
-        axios.get(`${this.$env.VUE_APP_API_URL}/NeedHelps`, {
+        axios.get(`${this.$env.VUE_APP_API_URL}/Helpers`, {
           params: {
             filter
           }
@@ -205,13 +204,13 @@
       VueBootstrap4Table
     },
     mounted () {
-      this.fetchData()
+      this.fetchNeeder()
     }
   }
 </script>
 
 <style lang="scss">
-  .admin-need-helps__sorting-icon {
+  .admin-helper-list__sorting-icon {
     margin-left: 1rem;
   }
   .card-header {

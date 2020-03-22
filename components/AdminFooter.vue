@@ -22,7 +22,7 @@
     height: $admin-footer-height;
     border-top: 1px solid #ddd;
     padding: 1rem 0;
-    background-color: #eee;
+    background-color: #eff1f5;
     text-align: center;
   }
 </style>
