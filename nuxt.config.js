@@ -23,7 +23,6 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-
   /*
    ** Customize the progress-bar color
    */
@@ -95,7 +94,9 @@ export default {
     extend (config, ctx) {
     }
   },
-
+  router: {
+    linkExactActiveClass: 'active'
+  },
   serverMiddleware: [
     bodyParser.json(),
     {

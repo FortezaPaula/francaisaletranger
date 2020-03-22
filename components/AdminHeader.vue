@@ -1,13 +1,25 @@
 <template>
   <header class="admin-header">
-    <div class="container">
-      <nav role="navigation" class="admin-header__navigation">
+    <div class="container admin-header__container clearfix">
+      <div class="admin-header__logo">
         <nuxt-link to="/admin" class="admin-header__logo-link">
           <img src="~/assets/logo.png" alt="République Française" class="admin-header__logo-image" />
-          {{ $t('app-title') }}
         </nuxt-link>
-        <nuxt-link to="/admin">Accueil</nuxt-link>
-        <nuxt-link to="/admin/helpers">Aidants</nuxt-link>
+        <div class="admin-header__baseline">{{ $t('app-title') }}</div>
+      </div>
+      <nav role="navigation" class="admin-header__navigation">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <nuxt-link to="/admin" class="nav-link">
+              Accueil
+            </nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link to="/admin/helpers" class="nav-link">
+              Aidants
+            </nuxt-link>
+          </li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -30,14 +42,33 @@
     background-color: #eee;
     height: $admin-header-height;
   }
+  .admin-header__container {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
   .admin-header__navigation {
-    padding: 1rem 0;
+    float: right;
+    padding: .5rem 0;
+    .nav-item {
+      margin-left: .5rem;
+    }
+  }
+  .admin-header__logo {
+    float: left;
   }
   .admin-header__logo-link {
+    display: inline-block;
     text-decoration: none;
     color: black;
+    &:hover {
+      background-color: white;
+    }
   }
   .admin-header__logo-image {
     width: 100px;
+  }
+  .admin-header__baseline {
+    display: inline-block;
+    margin: 0 .5rem;
   }
 </style>
