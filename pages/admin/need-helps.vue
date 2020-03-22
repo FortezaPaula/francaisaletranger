@@ -83,10 +83,9 @@
         filter.limit = this.queryParams.per_page
         filter.offset = (this.queryParams.page - 1) * this.queryParams.per_page
         if (this.queryParams.sort && this.queryParams.sort.length > 0) {
-          console.log(this.queryParams.sort)
           filter.order = `${this.queryParams.sort[0].name} ${this.queryParams.sort[0].order === 'asc' ? 'ASC' : 'DESC'}`
         }
-        axios.get(`${process.env.VUE_APP_API_URL}/NeedHelps`, {
+        axios.get(`${this.$env.VUE_APP_API_URL}/NeedHelps`, {
           params: {
             filter
           }
