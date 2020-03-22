@@ -3,9 +3,11 @@
     <div class="container admin-header__container clearfix">
       <div class="admin-header__logo">
         <nuxt-link to="/admin" class="admin-header__logo-link">
-          <img src="~/assets/logo.png" alt="République Française" class="admin-header__logo-image" />
+          <img src="~/assets/logo.png" alt="République Française" class="admin-header__logo-image">
         </nuxt-link>
-        <div class="admin-header__baseline">{{ $t('app-title') }}</div>
+        <div class="admin-header__baseline">
+          {{ $t('app-title') }}
+        </div>
       </div>
       <nav role="navigation" class="admin-header__navigation">
         <ul class="nav nav-pills">
@@ -18,7 +20,7 @@
             <nuxt-link to="/admin/helpers" class="nav-link">
               Offres d’aide
             </nuxt-link>
-          <li class="nav-item">
+          </li><li class="nav-item">
             <nuxt-link to="/admin/need-helps" class="nav-link">
               Demandes d’aide
             </nuxt-link>

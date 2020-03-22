@@ -5,16 +5,28 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">E-mail</th>
-            <th scope="col">Localisation</th>
+            <th scope="col">
+              #
+            </th>
+            <th scope="col">
+              Nom
+            </th>
+            <th scope="col">
+              Prénom
+            </th>
+            <th scope="col">
+              E-mail
+            </th>
+            <th scope="col">
+              Localisation
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="helper in helpers" :key="helper.id">
-            <th scope="row">{{ helper.id }}</th>
+            <th scope="row">
+              {{ helper.id }}
+            </th>
             <td>{{ helper.nom }}</td>
             <td>{{ helper.prenom }}</td>
             <td>{{ helper.email }}</td>
@@ -37,6 +49,9 @@
         helpers: []
       }
     },
+    mounted () {
+      this.fetchHelpers()
+    },
     methods: {
       async fetchHelpers () {
         this.helpers = await new HelpersService(this.$env.VUE_APP_API_URL).get()
@@ -48,9 +63,6 @@
         }
         return ''
       }
-    },
-    mounted () {
-      this.fetchHelpers()
     }
   }
 </script>

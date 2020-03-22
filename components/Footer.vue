@@ -1,11 +1,13 @@
 <template>
   <div class="footer">
-    <b-row>
+    <b-row align-h="center">
+      -
+    </b-row>
+    <b-row align-v="center">
       <b-col>
         <a
           href="https://github.com/octo-webf/francaisaletranger"
           target="_blank"
-          class="button--grey"
         >
           <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
             <path
@@ -17,11 +19,19 @@
         </a>
       </b-col>
       <b-col>
-        <div>
-          <b-link href="/faq">
-            FAQ
-          </b-link>
-        </div>
+        <nuxt-link to="/mentions-legales">
+          Mentions legales
+        </nuxt-link>
+      </b-col>
+      <b-col>
+        <nuxt-link to="/conditions-d-utilisation">
+          Conditions d'utilisation
+        </nuxt-link>
+      </b-col>
+      <b-col>
+        <nuxt-link to="/faq">
+          FAQ
+        </nuxt-link>
       </b-col>
     </b-row>
   </div>
@@ -29,38 +39,19 @@
 
 <script>
   export default {
-    name: 'Footer',
-    data () {
-      return {}
-    },
-
-    created () {
-    },
-
-    methods: {}
+    name: 'Footer'
   }
 </script>
 
 <style lang="scss" scoped>
   .footer {
     height: $footer-height;
-    padding-top: 0.4rem;
     text-align: center;
   }
 
-  .button--grey {
-    display: inline-block;
-    border-radius: 4px;
-    border: 1px solid #35495e;
-    color: #35495e;
-    text-decoration: none;
-    padding: 5px 20px;
-    margin-left: 15px;
-
-    svg {
-      height: 1.5rem;
-      vertical-align: bottom;
-    }
+  svg {
+    height: 1.5rem;
+    vertical-align: bottom;
   }
 
   .button--grey:hover {
