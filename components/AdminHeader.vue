@@ -16,7 +16,11 @@
           </li>
           <li class="nav-item">
             <nuxt-link to="/admin/helpers" class="nav-link">
-              Aidants
+              Offres d’aide
+            </nuxt-link>
+          <li class="nav-item">
+            <nuxt-link to="/admin/need-helps" class="nav-link">
+              Demandes d’aide
             </nuxt-link>
           </li>
         </ul>

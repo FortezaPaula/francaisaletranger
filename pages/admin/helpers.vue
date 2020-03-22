@@ -1,6 +1,6 @@
 <template>
   <div class="admin-helpers">
-    <h1>Aidants</h1>
+    <h1>Offres d’aide</h1>
     <div v-if="hasHelpers" class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
