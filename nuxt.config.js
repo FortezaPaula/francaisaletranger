@@ -1,5 +1,7 @@
 import bodyParser from 'body-parser'
 
+require('dotenv').config()
+
 export default {
   mode: 'universal',
 
@@ -72,7 +74,7 @@ export default {
     [
       'nuxt-env',
       {
-        keys: []
+        keys: ['VUE_APP_API_URL']
       }
     ]
   ],
