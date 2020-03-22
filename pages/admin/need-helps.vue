@@ -26,6 +26,12 @@
       <template slot="reset-button-text">
         <i class="fas fa-broom"></i> Réinitialiser
       </template>
+      <template slot="approvisionnement" slot-scope="props">
+        {{ props.cell_value ? '🍽' : '' }}
+      </template>
+      <template slot="autres" slot-scope="props">
+        {{ props.cell_value ? '🤝' : '' }}
+      </template>
     </vue-bootstrap4-table>
   </div>
 </template>
@@ -82,7 +88,7 @@
             sort: true
           },
           {
-            label: '🏠',
+            label: '🛏',
             name: 'nombre_hebergement',
             filter: {
               type: 'simple'
@@ -92,8 +98,18 @@
             sort: true
           },
           {
-            label: '🍔',
+            label: '🍽',
             name: 'approvisionnement',
+            filter: {
+              type: 'simple'
+            },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
+          },
+          {
+            label: '🤝',
+            name: 'autres',
             filter: {
               type: 'simple'
             },
@@ -153,7 +169,7 @@
             if (['id'].includes(filter.name)) {
               conditions.push({ id: filter.text })
             }
-            if (['nom', 'prenom', 'email', 'approvisionnement'].includes(filter.name)) {
+            if (['nom', 'prenom', 'email'].includes(filter.name)) {
               const condition = {}
               condition[filter.name] = { like: `%${filter.text}%`, options: 'i' }
               conditions.push(condition)
@@ -161,6 +177,11 @@
             if (['nombre_hebergement'].includes(filter.name)) {
               const condition = {}
               condition[filter.name] = { gte: filter.text }
+              conditions.push(condition)
+            }
+            if (['approvisionnement', 'autres'].includes(filter.name)) {
+              const condition = {}
+              condition[filter.name] = true
               conditions.push(condition)
             }
           }
