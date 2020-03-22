@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import { helpersService } from '@/services'
+  import HelpersService from '@/services/helpers.service'
 
   export default {
     layout: 'admin',
@@ -39,7 +39,7 @@
     },
     methods: {
       async fetchHelpers () {
-        this.helpers = await helpersService.get()
+        this.helpers = await new HelpersService(this.$env.VUE_APP_API_URL).get()
         this.hasHelpers = this.helpers && this.helpers.length > 0
       },
       formatPosition (position) {
