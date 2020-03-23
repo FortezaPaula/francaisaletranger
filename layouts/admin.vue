@@ -30,6 +30,12 @@
 </script>
 
 <style lang="scss">
+  .layout-admin {
+    .container {
+      max-width: 100%;
+    }
+  }
+
   .layout-admin__content {
     padding: 1rem 0;
     min-height: calc(100vh - #{$admin-header-height} - #{$admin-footer-height});

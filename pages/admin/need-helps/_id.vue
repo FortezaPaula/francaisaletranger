@@ -11,7 +11,41 @@
         </div>
       </div>
       <div class="col-md-8">
-        <p>Afficher les offres correspondantes.</p>
+        <div>
+          Nombre d'aidant potentiel :
+          <span style="font-weight: bold; font-size:1.2rem" class="text-success">{{ helpers.length }}</span>
+          <ul>
+            <!--            <li>qui répondent <b>exactement</b> à tous les critères de besoin</li>-->
+            <li>dans les <b>{{ maxDistance / 1000 }} kms</b> autour de la personne</li>
+          </ul>
+        </div>
+        <table cellpadding="10px">
+          <tr>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Distance (km)</th>
+            <th>Nb critère exact</th>
+          </tr>
+          <tr
+            v-for="(helper, index) in helpers"
+            :key="helper.id"
+            class="classement-helper"
+            :class="{'alert-success' : index === 0}"
+          >
+            <td>{{ helper.prenom }}</td>
+            <td>{{ helper.nom }}</td>
+            <td>{{ Math.round(helper.distanceInMeters) / 1000 }}</td>
+            <td>{{ helper.scoring }}</td>
+            <td>
+              <b-button disabled style="cursor: default">
+                Envoyer mail
+              </b-button>
+            </td>
+            <td v-if="index === 0">
+              <b>Meilleur choix</b>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
@@ -27,8 +61,10 @@
     components: { AdminForm },
     data () {
       return {
+        maxDistance: 10000,
         needer: {},
-        showNeederLoader: false
+        showNeederLoader: false,
+        helpers: []
       }
     },
     mounted () {
@@ -38,17 +74,28 @@
     methods: {
       fetchNeeder () {
         const self = this
-        axios.get(`${this.$env.VUE_APP_API_URL}/NeedHelps/${this.$route.params.id}`, {
+        axios.get(`/api/need-help/${this.$route.params.id}`, {
           params: {
             access_token: accessToken()
           }
-        })
-          .then(function (response) {
-            self.needer = response.data
-            self.showNeederLoader = false
-          }).catch(function (error) {
+        }).then(function (response) {
+          self.needer = response.data
+          self.showNeederLoader = false
+        }).catch(function (error) {
           self.showNeederLoader = false
           console.log(error)
+        })
+
+        axios.get('/api/matching/', {
+          params: {
+            id: this.$route.params.id,
+            maxDistance: this.maxDistance,
+            access_token: accessToken()
+          }
+        }).then((response) => {
+          this.helpers = response.data.sort(function (a, b) {
+            return a.distanceInMeters - b.distanceInMeters && b.scoring - a.scoring
+          })
         })
       }
     }
@@ -61,5 +108,11 @@
     background-color: #eff1f5;
     border: 1px solid #ddd;
     border-radius: 3px;
+  }
+
+  .admin-need-help {
+    .best-choice {
+      background-color: orange;
+    }
   }
 </style>

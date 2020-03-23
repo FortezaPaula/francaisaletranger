@@ -33,6 +33,9 @@
       <template slot="autres" slot-scope="props">
         {{ props.cell_value ? '🤝' : '' }}
       </template>
+      <template slot="helper_id" slot-scope="props">
+        {{ props.cell_value ? 'Oui' : 'Non' }}
+      </template>
       <template slot="links" slot-scope="props">
         <nuxt-link :to="{ path: `/admin/need-helps/${props.row.id}` }" class="btn btn-primary">
           <i class="fas fa-user-friends" />
@@ -44,14 +47,10 @@
 
 <script>
   import axios from 'axios'
-  import VueBootstrap4Table from 'vue-bootstrap4-table'
   import accessToken from '@/helpers/accessToken'
 
   export default {
     layout: 'admin',
-    components: {
-      VueBootstrap4Table
-    },
     data () {
       return {
         rows: [],
@@ -132,6 +131,13 @@
             name: 'links',
             column_text_alignment: 'text-right',
             row_text_alignment: 'text-right'
+          },
+          {
+            label: 'Déjà aidé ?',
+            name: 'helper_id',
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
           }
         ],
         config: {
@@ -206,7 +212,7 @@
           }
           filter.where = { and: conditions }
         }
-        axios.get(`${this.$env.VUE_APP_API_URL}/NeedHelps`, {
+        axios.get('/api/need-help', {
           params: {
             filter,
             access_token: accessToken()

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import AdminHelperList from '../../components/AdminHelperList'
+  import AdminHelperList from '@/components/AdminHelperList'
 
   export default {
     layout: 'admin',

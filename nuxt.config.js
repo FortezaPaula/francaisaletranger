@@ -36,7 +36,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['plugins/vuelidate'],
+  plugins: ['plugins/vuelidate', {
+    src: 'plugins/vue-bootstrap4-table',
+    ssr: false
+  }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -112,8 +115,16 @@ export default {
       handler: 'api/can-help'
     },
     {
+      path: '/api/need-help',
+      handler: 'api/need-help'
+    },
+    {
       path: '/api/login',
       handler: 'api/login'
+    },
+    {
+      path: '/api/matching',
+      handler: 'api/matching'
     }
   ],
   /* PWA Config */

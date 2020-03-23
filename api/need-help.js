@@ -1,8 +1,26 @@
 import axios from 'axios/index'
 
-function needHelpAPI (req, res) {
+export default (req, res) => {
   const url = process.env.VUE_APP_API_URL + '/NeedHelps'
-  if (req.method === 'POST') {
+
+  if (req.method === 'GET') {
+    return axios.get(url + req.url)
+      .then((response) => {
+        res.statusCode = response.status
+        if (response.headers['x-total-count']) {
+          res.setHeader('X-Total-Count', response.headers['x-total-count'])
+        }
+        res.end(JSON.stringify(response.data))
+      })
+      .catch((error) => {
+        if (error.response) {
+          res.statusCode = error.response.status
+        } else {
+          res.statusCode = 500
+        }
+        res.end(JSON.stringify(error.message))
+      })
+  } else if (req.method === 'POST') {
     return axios.post(url, req.body)
       .then((response) => {
         res.statusCode = response.status
@@ -26,5 +44,3 @@ function needHelpAPI (req, res) {
     res.end()
   }
 }
-
-export default needHelpAPI
