@@ -64,20 +64,19 @@
             Vérifier
           </a>
         </div>
-        <div>
-          <b-form-invalid-feedback :state="validatePosition()">
-            Merci de vous localiser
-          </b-form-invalid-feedback>
-        </div>
       </div>
-      <div v-else>
-        <b-form-group label="Pays">
-          <b-form-select id="pays" v-model="form.position.pays" name="pays" :options="countries" />
-        </b-form-group>
-        <b-form-group label="Ville">
-          <b-form-input id="pays" v-model="form.position.ville" name="ville" type="text" />
-        </b-form-group>
-      </div>
+      <b-form-group label="Ou indiquez votre ville">
+        <Places type="city" @change="setCity($event.suggestion)"/>
+        <b-form-invalid-feedback :state="validatePosition()">
+          Merci de vous localiser
+        </b-form-invalid-feedback>
+      </b-form-group>
+      <b-form-group label="Ville">
+        <b-form-input id="pays" v-model="form.position.ville" name="ville" type="text" readonly />
+      </b-form-group>
+      <b-form-group label="Pays">
+        <b-form-input id="pays" v-model="form.position.pays" name="pays" type="text" readonly />
+      </b-form-group>
     </b-form-group>
     <b-form-group :label="titleHelps">
       <b-form-checkbox-group
@@ -106,13 +105,13 @@
 
 <script>
   import axios from 'axios'
-  import countries from 'static/contries'
   import { required, minLength, email, requiredIf } from 'vuelidate/lib/validators'
   import availableHelpers from '../helpers/availableHelpers'
+  import Places from '@/components/places'
 
   export default {
     name: 'Form',
-
+    components: { Places },
     props: {
       postURL: {
         type: String,
@@ -134,7 +133,6 @@
 
     data () {
       return {
-        countries,
         geoloc: false,
         pendingGeoloc: false,
         requestSend: false,
@@ -221,6 +219,13 @@
           this.form.position.latitude = position.coords.latitude
           this.form.position.longitude = position.coords.longitude
         }, () => { this.geoloc = false })
+      },
+
+      setCity (suggestion) {
+        this.form.position.latitude = suggestion.latlng.lat
+        this.form.position.longitude = suggestion.latlng.lng
+        this.form.position.ville = suggestion.name
+        this.form.position.pays = suggestion.country
       },
 
       onSubmit (event) {
