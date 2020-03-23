@@ -220,7 +220,7 @@
           this.pendingGeoloc = false
           this.form.position.latitude = position.coords.latitude
           this.form.position.longitude = position.coords.longitude
-        })
+        }, () => { this.geoloc = false })
       },
 
       onSubmit (event) {
