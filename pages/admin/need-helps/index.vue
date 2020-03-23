@@ -10,22 +10,22 @@
       @on-change-query="onChangeQuery"
     >
       <template slot="sort-asc-icon">
-        <i class="admin-need-helps__sorting-icon fas fa-sort-up"/>
+        <i class="admin-need-helps__sorting-icon fas fa-sort-up" />
       </template>
       <template slot="sort-desc-icon">
-        <i class="admin-need-helps__sorting-icon fas fa-sort-down"/>
+        <i class="admin-need-helps__sorting-icon fas fa-sort-down" />
       </template>
       <template slot="no-sort-icon">
-        <i class="admin-need-helps__sorting-icon fas fa-sort"/>
+        <i class="admin-need-helps__sorting-icon fas fa-sort" />
       </template>
       <template slot="empty-results">
         Aucun résultat
       </template>
       <template slot="refresh-button-text">
-        <i class="fas fa-sync-alt"/> Rafraîchir
+        <i class="fas fa-sync-alt" /> Rafraîchir
       </template>
       <template slot="reset-button-text">
-        <i class="fas fa-broom"/> Réinitialiser
+        <i class="fas fa-broom" /> Réinitialiser
       </template>
       <template slot="approvisionnement" slot-scope="props">
         {{ props.cell_value ? '🍽' : '' }}
@@ -35,7 +35,7 @@
       </template>
       <template slot="links" slot-scope="props">
         <nuxt-link :to="{ path: `/admin/need-helps/${props.row.id}` }" class="btn btn-primary">
-          <i class="fas fa-user-friends"/>
+          <i class="fas fa-user-friends" />
         </nuxt-link>
       </template>
     </vue-bootstrap4-table>
@@ -45,6 +45,7 @@
 <script>
   import axios from 'axios'
   import VueBootstrap4Table from 'vue-bootstrap4-table'
+  import accessToken from '@/helpers/accessToken'
 
   export default {
     layout: 'admin',
@@ -207,7 +208,8 @@
         }
         axios.get(`${this.$env.VUE_APP_API_URL}/NeedHelps`, {
           params: {
-            filter
+            filter,
+            access_token: accessToken()
           }
         }).then(function (response) {
           self.rows = response.data

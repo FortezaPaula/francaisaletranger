@@ -39,6 +39,7 @@
 <script>
   import axios from 'axios'
   import VueBootstrap4Table from 'vue-bootstrap4-table'
+  import accessToken from '../helpers/accessToken'
 
   export default {
     layout: 'admin',
@@ -195,6 +196,7 @@
         }
         axios.get(`${this.$env.VUE_APP_API_URL}/Helpers`, {
           params: {
+            access_token: accessToken(),
             filter
           }
         }).then(function (response) {

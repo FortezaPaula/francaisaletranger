@@ -25,8 +25,7 @@
             value-field="data"
             text-field="name"
             stacked
-          >
-          </b-form-checkbox-group>
+          />
         </b-form-group>
         <br>
         <div class="button-go">

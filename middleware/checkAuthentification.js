@@ -1,4 +1,4 @@
-import Cookies from 'universal-cookie'
+import accessToken from '~/helpers/accessToken'
 
 export default ({ req, res, app, redirect }) => {
   if (req) {
@@ -6,8 +6,7 @@ export default ({ req, res, app, redirect }) => {
       return redirect('/login')
     }
   } else {
-    const cookies = new Cookies()
-    const token = cookies.get('access_token')
+    const token = accessToken()
 
     if (token === undefined) {
       return redirect('/login')

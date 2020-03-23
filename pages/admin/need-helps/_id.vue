@@ -19,6 +19,7 @@
 
 <script>
   import axios from 'axios'
+  import accessToken from '@/helpers/accessToken'
   import AdminForm from '@/components/AdminForm'
 
   export default {
@@ -37,14 +38,18 @@
     methods: {
       fetchNeeder () {
         const self = this
-        axios.get(`${this.$env.VUE_APP_API_URL}/NeedHelps/${this.$route.params.id}`, {})
+        axios.get(`${this.$env.VUE_APP_API_URL}/NeedHelps/${this.$route.params.id}`, {
+          params: {
+            access_token: accessToken()
+          }
+        })
           .then(function (response) {
             self.needer = response.data
             self.showNeederLoader = false
           }).catch(function (error) {
-            self.showNeederLoader = false
-            console.log(error)
-          })
+          self.showNeederLoader = false
+          console.log(error)
+        })
       }
     }
   }

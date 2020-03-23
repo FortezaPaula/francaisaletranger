@@ -1,4 +1,5 @@
 import axios from 'axios'
+import accessToken from '@/helpers/accessToken'
 
 export default class HelpersService {
   constructor (apiUrl) {
@@ -12,7 +13,11 @@ export default class HelpersService {
   }
 
   async get () {
-    const response = await this.api.get()
+    const response = await this.api.get({
+      params: {
+        access_token: accessToken()
+      }
+    })
     return response.data
   }
 }
