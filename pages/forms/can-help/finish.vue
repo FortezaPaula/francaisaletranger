@@ -8,6 +8,11 @@
     <p>
       En vous souhaitant une très bonne journée.
     </p>
+    <nuxt-link to="/">
+      <b-button variant="primary">
+        {{ $t('finish-back-to-home-page') }}
+      </b-button>
+    </nuxt-link>
   </div>
 </template>
 
