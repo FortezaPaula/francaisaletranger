@@ -26,18 +26,15 @@
             text-field="name"
             stacked
           >
-            <b-form-invalid-feedback :state="validateStateHelpFor('selected')">
-              Au moins une proposition d'aide doit être coché
-            </b-form-invalid-feedback>
           </b-form-checkbox-group>
         </b-form-group>
         <br>
         <div class="button-go">
-          <b-button :disabled="$v.form.$anyError" type="submit" variant="primary">
+          <b-button type="submit" variant="primary">
             Mettre à jour mes capacités d'aide
           </b-button>
           <div v-if="requestSend" class="good-send">
-            Bien reçu !!
+            Bien reçu !
           </div>
         </div>
       </b-form>
@@ -47,7 +44,6 @@
 
 <script>
   import axios from 'axios'
-  import { required, minLength } from 'vuelidate/lib/validators'
   import availableHelpers from '../../helpers/availableHelpers'
 
   export default {
@@ -77,10 +73,7 @@
     validations: {
       form: {
         helpFor: {
-          selected: {
-            required,
-            minLength: minLength(1)
-          }
+          selected: {}
         }
       }
     },
@@ -101,10 +94,6 @@
       availableHelpers,
       deleteInfoBanner () {
         this.$refs.infoBanner.style.display = 'none'
-      },
-      validateStateHelpFor (name) {
-        const { $dirty, $error } = this.$v.form.helpFor[name]
-        return $dirty ? !$error : null
       },
       onSubmit (event) {
         event.preventDefault()
