@@ -50,7 +50,7 @@
     data () {
       return {
         requestSend: false,
-        putUrl: '/api/need-help', // TODO bouger need help dans le middleware
+        putUrl: '/api/need-help',
         form: {
           id: undefined,
           nom: undefined,
