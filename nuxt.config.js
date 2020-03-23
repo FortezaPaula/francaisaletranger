@@ -104,6 +104,10 @@ export default {
       handler: 'api/health'
     },
     {
+      path: '/api/need-help',
+      handler: 'api/need-help'
+    },
+    {
       path: '/api/can-help',
       handler: 'api/can-help'
     },

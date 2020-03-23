@@ -13,7 +13,7 @@
     </p>
     <Form
       class="form"
-      post-u-r-l="/forms/need-help"
+      post-u-r-l="/api/need-help"
       type-form="need"
       title-helps="J'ai besoin :"
       after-u-r-l="/need-help/dashboard"
@@ -28,8 +28,6 @@
     name: 'NeedHelp',
 
     components: { Form },
-
-    middleware: 'need-help',
 
     beforeMount () {
       if (localStorage.myInfos_need) {
