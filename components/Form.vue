@@ -233,6 +233,7 @@
           },
           nombre_hebergement: this.form.helpFor.selected.includes('hebergement') ? 1 : 0,
           approvisionnement: this.form.helpFor.selected.includes('approvisionnement'),
+          garde_enfants: this.form.helpFor.selected.includes('enfants'),
           autres: this.form.helpFor.selected.includes('autres')
         }
 
