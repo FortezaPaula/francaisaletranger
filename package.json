@@ -24,6 +24,7 @@
     "nuxt-env": "^0.1.0",
     "nuxt-i18n": "^6.6.1",
     "sass-loader": "^8.0.2",
+    "universal-cookie": "^4.0.3",
     "vue-bootstrap4-table": "^1.1.11",
     "vuelidate": "^0.7.5"
   },

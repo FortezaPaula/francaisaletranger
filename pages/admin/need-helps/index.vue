@@ -5,26 +5,27 @@
       :rows="rows"
       :columns="columns"
       :config="config"
-      @on-change-query="onChangeQuery"
       :show-loader="showLoader"
-      :total-rows="total_rows">
+      :total-rows="total_rows"
+      @on-change-query="onChangeQuery"
+    >
       <template slot="sort-asc-icon">
-        <i class="admin-need-helps__sorting-icon fas fa-sort-up"></i>
+        <i class="admin-need-helps__sorting-icon fas fa-sort-up"/>
       </template>
       <template slot="sort-desc-icon">
-        <i class="admin-need-helps__sorting-icon fas fa-sort-down"></i>
+        <i class="admin-need-helps__sorting-icon fas fa-sort-down"/>
       </template>
       <template slot="no-sort-icon">
-        <i class="admin-need-helps__sorting-icon fas fa-sort"></i>
+        <i class="admin-need-helps__sorting-icon fas fa-sort"/>
       </template>
       <template slot="empty-results">
         Aucun résultat
       </template>
       <template slot="refresh-button-text">
-        <i class="fas fa-sync-alt"></i> Rafraîchir
+        <i class="fas fa-sync-alt"/> Rafraîchir
       </template>
       <template slot="reset-button-text">
-        <i class="fas fa-broom"></i> Réinitialiser
+        <i class="fas fa-broom"/> Réinitialiser
       </template>
       <template slot="approvisionnement" slot-scope="props">
         {{ props.cell_value ? '🍽' : '' }}
@@ -34,7 +35,7 @@
       </template>
       <template slot="links" slot-scope="props">
         <nuxt-link :to="{ path: `/admin/need-helps/${props.row.id}` }" class="btn btn-primary">
-          <i class="fas fa-user-friends"></i>
+          <i class="fas fa-user-friends"/>
         </nuxt-link>
       </template>
     </vue-bootstrap4-table>
@@ -47,6 +48,9 @@
 
   export default {
     layout: 'admin',
+    components: {
+      VueBootstrap4Table
+    },
     data () {
       return {
         rows: [],
@@ -150,6 +154,9 @@
         showLoader: true
       }
     },
+    mounted () {
+      this.fetchNeeder()
+    },
     methods: {
       onChangeQuery (queryParams) {
         this.queryParams = queryParams
@@ -211,12 +218,6 @@
           console.log(error)
         })
       }
-    },
-    components: {
-      VueBootstrap4Table
-    },
-    mounted () {
-      this.fetchNeeder()
     }
   }
 </script>
@@ -225,33 +226,42 @@
   .admin-need-helps__sorting-icon {
     margin-left: 1rem;
   }
+
   .card-header {
     display: none;
   }
+
   .vbt-table-tools th {
     border-top: none;
     padding: 0;
   }
+
   .vbt-column-header {
     &:hover {
       background-color: #ffa;
     }
   }
+
   .vbt-header-row {
     display: block;
+
     > .col-md-4 {
       max-width: 100%;
     }
+
     > .col-md-8 {
       display: none;
     }
+
     .btn-group {
       float: right;
     }
   }
+
   .vbt-global-search {
     display: block;
   }
+
   .vbt-table-wrapper tbody .table-active .form-group {
     margin-bottom: 0;
   }

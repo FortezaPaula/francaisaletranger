@@ -1,7 +1,7 @@
 import axios from 'axios/index'
 
 function canHelpAPI (req, res) {
-  const url = process.env.VUE_APP_API_URL + '/Helpers';
+  const url = process.env.VUE_APP_API_URL + '/Helpers'
   if (req.method === 'POST') {
     return axios.post(url, req.body)
       .then((response) => {

@@ -106,6 +106,10 @@ export default {
     {
       path: '/api/can-help',
       handler: 'api/can-help'
+    },
+    {
+      path: '/api/login',
+      handler: 'api/login'
     }
   ],
   /* PWA Config */

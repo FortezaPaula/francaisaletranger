@@ -7,7 +7,7 @@
     <div v-else class="row">
       <div class="col-md-4">
         <div class="admin-need-help__card">
-          <AdminForm :needer="needer"></AdminForm>
+          <AdminForm :needer="needer" />
         </div>
       </div>
       <div class="col-md-8">
@@ -30,6 +30,10 @@
         showNeederLoader: false
       }
     },
+    mounted () {
+      this.showNeederLoader = true
+      this.fetchNeeder()
+    },
     methods: {
       fetchNeeder () {
         const self = this
@@ -42,10 +46,6 @@
             console.log(error)
           })
       }
-    },
-    mounted () {
-      this.showNeederLoader = true
-      this.fetchNeeder()
     }
   }
 </script>

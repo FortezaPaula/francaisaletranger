@@ -16,6 +16,9 @@
 
   export default {
     components: { AdminFooter, AdminHeader },
+
+    middleware: 'checkAuthentification',
+
     head () {
       return {
         script: [

@@ -1,7 +1,7 @@
 <template>
   <div class="admin-helps">
     <h1>Offres d’aide</h1>
-    <AdminHelperList></AdminHelperList>
+    <AdminHelperList />
   </div>
 </template>
 
