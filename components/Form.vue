@@ -64,6 +64,11 @@
             Vérifier
           </a>
         </div>
+        <div>
+          <b-form-invalid-feedback :state="validatePosition()">
+            Merci de vous localiser
+          </b-form-invalid-feedback>
+        </div>
       </div>
       <div v-else>
         <b-form-group label="Pays">
@@ -200,6 +205,11 @@
 
       validateStateHelpFor (name) {
         const { $dirty, $error } = this.$v.form.helpFor[name]
+        return $dirty ? !$error : null
+      },
+
+      validatePosition () {
+        const { $dirty, $error } = this.$v.form.position.latitude
         return $dirty ? !$error : null
       },
 
