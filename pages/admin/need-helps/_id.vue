@@ -7,10 +7,10 @@
     <div v-else class="row">
       <div class="col-md-4">
         <div class="admin-need-help__card">
-          <AdminForm :needer="needer" />
+          <AdminForm :needer="needer"/>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8" v-if="needer.helper_id === null">
         <div>
           Nombre d'aidant potentiel :
           <span style="font-weight: bold; font-size:1.2rem" class="text-success">{{ helpers.length }}</span>
@@ -47,6 +47,9 @@
           </tr>
         </table>
       </div>
+      <div class="col-md-8" v-else>
+        <h3 class="text-danger">Cette demande d'aide a déjà eu un aidant d'affecté.</h3>
+      </div>
     </div>
   </div>
 </template>
@@ -81,21 +84,23 @@
         }).then(function (response) {
           self.needer = response.data
           self.showNeederLoader = false
+
+          if (self.needer.helper_id === null) {
+            axios.get('/api/matching/', {
+              params: {
+                id: this.$route.params.id,
+                maxDistance: this.maxDistance,
+                access_token: accessToken()
+              }
+            }).then((response) => {
+              this.helpers = response.data.sort(function (a, b) {
+                return a.distanceInMeters - b.distanceInMeters && b.scoring - a.scoring
+              })
+            })
+          }
         }).catch(function (error) {
           self.showNeederLoader = false
           console.log(error)
-        })
-
-        axios.get('/api/matching/', {
-          params: {
-            id: this.$route.params.id,
-            maxDistance: this.maxDistance,
-            access_token: accessToken()
-          }
-        }).then((response) => {
-          this.helpers = response.data.sort(function (a, b) {
-            return a.distanceInMeters - b.distanceInMeters && b.scoring - a.scoring
-          })
         })
       },
       sendMailMatching (neederId, helperId) {
