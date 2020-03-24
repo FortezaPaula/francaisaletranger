@@ -3,7 +3,7 @@
     <div class="container admin-header__container clearfix">
       <div class="admin-header__logo">
         <nuxt-link to="/admin" class="admin-header__logo-link">
-          <img src="~/assets/logo.png" alt="République Française" class="admin-header__logo-image">
+          <img src="~/static/logo.jpg" alt="République Française" class="admin-header__logo-image">
         </nuxt-link>
         <div class="admin-header__baseline">
           {{ $t('app-title') }}
@@ -50,8 +50,8 @@
     height: $admin-header-height;
   }
   .admin-header__container {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding: 0;
+    padding-right: 0.5rem;
   }
   .admin-header__navigation {
     float: right;

@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <nuxt-link to="/">
-      <img src="~/assets/logo.png" class="logo" alt="Logo République Française">
+      <img src="~/static/logo.jpg" class="logo" alt="Logo République Française">
       {{ $t('app-title') }}
     </nuxt-link>
   </div>
