@@ -127,6 +127,10 @@ export default {
     {
       path: '/api/matching',
       handler: 'api/matching'
+    },
+    {
+      path: '/api/send-matching',
+      handler: 'api/send-matching'
     }
   ],
   /* PWA Config */

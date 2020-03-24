@@ -37,7 +37,7 @@
             <td>{{ Math.round(helper.distanceInMeters) / 1000 }}</td>
             <td>{{ helper.scoring }}</td>
             <td>
-              <b-button disabled style="cursor: default">
+              <b-button @click="sendMailMatching(needer.id, helper.id)" style="cursor: default">
                 Envoyer mail
               </b-button>
             </td>
@@ -96,6 +96,17 @@
           this.helpers = response.data.sort(function (a, b) {
             return a.distanceInMeters - b.distanceInMeters && b.scoring - a.scoring
           })
+        })
+      },
+      sendMailMatching (neederId, helperId) {
+        axios.post('/api/send-matching/', {
+          params: {
+            needHelp_id: neederId,
+            helper_id: helperId,
+            access_token: accessToken()
+          }
+        }).then(() => {
+          alert('Un email vient d\'être envoyé pour la mise en relation');
         })
       }
     }
