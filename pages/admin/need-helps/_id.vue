@@ -106,7 +106,7 @@
             access_token: accessToken()
           }
         }).then(() => {
-          alert('Un email vient d\'être envoyé pour la mise en relation');
+          alert('Un email vient d\'être envoyé pour la mise en relation')
         })
       }
     }
