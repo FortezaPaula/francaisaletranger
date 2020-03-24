@@ -108,6 +108,10 @@
       if (this.needer.autres) {
         this.form.helpFor.selected.push('autres')
       }
+
+      if (this.needer.garde_enfants) {
+        this.form.helpFor.selected.push('enfants')
+      }
     }
   }
 </script>
