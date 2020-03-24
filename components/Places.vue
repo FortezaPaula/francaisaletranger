@@ -1,11 +1,8 @@
 <template>
-  <!-- container for places.js -->
   <div />
 </template>
 
 <script>
-import places from 'places.js'
-
 export default {
   props: {
     type: {
@@ -23,6 +20,7 @@ export default {
     return { instance: null }
   },
   mounted () {
+    const places = require('places.js')
     // make sure Vue does not know about the input
     // this way it can properly unmount
     this.input = document.createElement('input')
