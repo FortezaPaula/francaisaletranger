@@ -101,10 +101,10 @@
       sendMailMatching (neederId, helperId) {
         axios.post('/api/send-matching/', {
           params: {
-            needHelp_id: neederId,
-            helper_id: helperId,
             access_token: accessToken()
-          }
+          },
+          needHelp_id: neederId,
+          helper_id: helperId
         }).then(() => {
           alert('Un email vient d\'être envoyé pour la mise en relation')
         })
