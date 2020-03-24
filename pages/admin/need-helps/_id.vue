@@ -100,9 +100,7 @@
       },
       sendMailMatching (neederId, helperId) {
         axios.post('/api/send-matching/', {
-          params: {
-            access_token: accessToken()
-          },
+          access_token: accessToken(),
           needHelp_id: neederId,
           helper_id: helperId
         }).then(() => {

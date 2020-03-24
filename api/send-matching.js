@@ -5,8 +5,7 @@ export default (req, res) => {
 
   if (req.method === 'POST') {
     res.setHeader('Content-Type', 'application/json')
-
-    return axios.post(url, req.body)
+    return axios.post(url + '?access_token=' + req.body.access_token, req.body)
       .then((response) => {
         res.statusCode = response.status
         res.end()
