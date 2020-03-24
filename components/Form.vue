@@ -39,44 +39,17 @@
         Ce n'est pas un email valide.
       </b-form-invalid-feedback>
     </b-form-group>
-    <b-form-group label="Localisation actuelle">
-      <div v-if="geoloc" class="geoloc">
-        <b-button
-          v-if="form.position.latitude === null && form.position.longitude === null && !pendingGeoloc"
-          @click="getGeoloc"
-        >
-          Localisez-moi
-        </b-button>
-        <div v-if="pendingGeoloc">
-          Localisation en cours ...
-        </div>
-        <div v-if="form.position.latitude && form.position.longitude" class="position">
-          <b>Position récupérée</b>
-          <br>
-          {{ form.position.latitude }}
-          <br>
-          {{ form.position.longitude }}
-          <br>
-          <a
-            :href="`https://www.google.com/maps/search/${form.position.latitude}+${form.position.longitude}`"
-            target="_blank"
-          >
-            Vérifier
-          </a>
-        </div>
-      </div>
-      <b-form-group label="Ou indiquez votre ville">
-        <Places type="city" @change="setCity($event.suggestion)"/>
-        <b-form-invalid-feedback :state="validatePosition()">
-          Merci de vous localiser
-        </b-form-invalid-feedback>
-      </b-form-group>
-      <b-form-group label="Ville">
-        <b-form-input id="pays" v-model="form.position.ville" name="ville" type="text" readonly />
-      </b-form-group>
-      <b-form-group label="Pays">
-        <b-form-input id="pays" v-model="form.position.pays" name="pays" type="text" readonly />
-      </b-form-group>
+    <b-form-group label="Votre localisation actuelle">
+      <Places type="city" @change="setCity($event.suggestion)"/>
+      <b-form-invalid-feedback :state="validatePosition()">
+        Merci de vous localiser
+      </b-form-invalid-feedback>
+    </b-form-group>
+    <b-form-group label="Ville">
+      <b-form-input id="pays" v-model="form.position.ville" name="ville" type="text" readonly />
+    </b-form-group>
+    <b-form-group label="Pays">
+      <b-form-input id="pays" v-model="form.position.pays" name="pays" type="text" readonly />
     </b-form-group>
     <b-form-group :label="titleHelps">
       <b-form-checkbox-group

@@ -12,6 +12,11 @@ export default {
       type: String,
       required: false,
       default: 'city'
+    },
+    placeholder: {
+      type: String,
+      required: false,
+      default: 'Saisir votre ville ici'
     }
   },
   data () {
@@ -21,6 +26,7 @@ export default {
     // make sure Vue does not know about the input
     // this way it can properly unmount
     this.input = document.createElement('input')
+    this.input.placeholder = this.placeholder
     this.$el.appendChild(this.input)
 
     this.instance = places({
