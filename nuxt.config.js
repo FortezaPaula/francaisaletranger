@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser'
+import cookieparser from 'cookie-parser'
 
 require('dotenv').config()
 
@@ -102,6 +103,7 @@ export default {
   },
   serverMiddleware: [
     bodyParser.json(),
+    cookieparser(),
     {
       path: '/api/health',
       handler: 'api/health'

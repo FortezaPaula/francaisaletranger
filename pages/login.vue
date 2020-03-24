@@ -82,6 +82,7 @@
         }).then((response) => {
           const cookies = new Cookies()
           cookies.set('access_token', response.data.id)
+          cookies.set('user_id', response.data.userId)
 
           this.$router.push({ path: '/admin' })
         }).catch((error) => {
