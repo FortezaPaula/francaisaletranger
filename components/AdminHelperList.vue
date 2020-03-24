@@ -161,7 +161,7 @@
           const fields = ['nom', 'prenom', 'email']
           for (let index = 0; index < fields.length; index++) {
             const condition = {}
-            condition[fields[index]] = { like: `%${this.queryParams.global_search}%`, options: 'i' }
+            condition[fields[index]] = { ilike: `%${this.queryParams.global_search}%` }
             conditions.push(condition)
           }
           filter.where = { or: conditions }
@@ -174,7 +174,7 @@
             }
             if (['nom', 'prenom', 'email'].includes(filter.name)) {
               const condition = {}
-              condition[filter.name] = { like: `%${filter.text}%`, options: 'i' }
+              condition[filter.name] = { ilike: `%${filter.text}%` }
               conditions.push(condition)
             }
             if (['nombre_hebergement'].includes(filter.name)) {
