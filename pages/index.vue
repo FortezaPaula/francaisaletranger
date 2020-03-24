@@ -40,7 +40,7 @@
           Vous pouvez proposer de l’aide pour faire des courses dans votre quartier ou pour un réapprovisionnement en
           produits de première nécessité ?
         </p>
-        <nuxt-link to="/form/can-help">
+        <nuxt-link to="/can-help/dashboard">
           <b-button variant="success">
             {{ $t('can-help') }}
           </b-button>
