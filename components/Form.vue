@@ -107,7 +107,7 @@
   import axios from 'axios'
   import { required, minLength, email, requiredIf } from 'vuelidate/lib/validators'
   import availableHelpers from '../helpers/availableHelpers'
-  import Places from '@/components/places'
+  import Places from '@/components/Places'
 
   export default {
     name: 'Form',
