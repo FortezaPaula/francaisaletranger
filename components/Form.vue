@@ -43,10 +43,10 @@
       </b-form-invalid-feedback>
     </b-form-group>
     <b-form-group label="Ville">
-      <b-form-input id="pays" v-model="form.position.ville" name="ville" type="text" readonly />
+      {{form.position.ville}}
     </b-form-group>
     <b-form-group label="Pays">
-      <b-form-input id="pays" v-model="form.position.pays" name="pays" type="text" readonly />
+      {{form.position.pays}}
     </b-form-group>
     <b-form-group :label="titleHelps">
       <b-form-checkbox-group
