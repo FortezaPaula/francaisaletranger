@@ -6,7 +6,6 @@
         v-model="$v.form.nom.$model"
         type="text"
         name="nom"
-        placeholder="Votre nom"
         :state="validateState('nom')"
       />
       <b-form-invalid-feedback>
@@ -19,7 +18,6 @@
         v-model="$v.form.prenom.$model"
         type="text"
         name="prenom"
-        placeholder="Votre prenom"
         :state="validateState('prenom')"
       />
       <b-form-invalid-feedback>
@@ -32,7 +30,6 @@
         v-model="$v.form.email.$model"
         type="email"
         name="email"
-        placeholder="Votre email"
         :state="validateState('email')"
       />
       <b-form-invalid-feedback>
