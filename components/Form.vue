@@ -56,6 +56,20 @@
         text-field="name"
         stacked
       >
+        <div v-if="form.helpFor.selected.includes('hebergement')">
+          <br>
+          Logement pour :
+          <b-form-select
+            :options="[
+              {text: '1 personne', value: 1},
+              {text: '2 personnes', value: 2},
+              {text: '3 personnes', value: 3},
+              {text: '4 personnes', value: 4},
+              {text: '5 personnes', value: 5},
+              {text: '6 personnes', value: 6}]"
+            v-model="form.helpFor.hebergement_number"
+            style="width: 30%"></b-form-select>
+        </div>
         <b-form-invalid-feedback :state="validateStateHelpFor('selected')">
           Au moins un besoin doit être coché
         </b-form-invalid-feedback>
@@ -119,6 +133,7 @@
           },
           helpFor: {
             selected: [],
+            hebergement_number: 1,
             options: availableHelpers()
           }
         }
@@ -188,7 +203,9 @@
           this.pendingGeoloc = false
           this.form.position.latitude = position.coords.latitude
           this.form.position.longitude = position.coords.longitude
-        }, () => { this.geoloc = false })
+        }, () => {
+          this.geoloc = false
+        })
       },
 
       setCity (suggestion) {
@@ -216,7 +233,7 @@
             lat: this.form.position.latitude,
             lng: this.form.position.longitude
           },
-          nombre_hebergement: this.form.helpFor.selected.includes('hebergement') ? 1 : 0,
+          nombre_hebergement: this.form.helpFor.selected.includes('hebergement') ? this.form.helpFor.hebergement_number : 0,
           approvisionnement: this.form.helpFor.selected.includes('approvisionnement'),
           garde_enfants: this.form.helpFor.selected.includes('enfants'),
           autres: this.form.helpFor.selected.includes('autres')
