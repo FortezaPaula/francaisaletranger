@@ -32,6 +32,31 @@
           <b-button type="submit" variant="primary">
             Mettre à jour mes besoins d'aide
           </b-button>
+          <b-button @click="displayModal()" variant="danger">
+            Supprimer ma demande d'aide
+          </b-button>
+
+          <b-modal
+            hide-footer
+            ref="delete-help-proposal-modal"
+            title="Je supprime ma demande d'aide :"
+          >
+            <b-button
+              @click="deleteHelper()"
+              block
+              class="mt-3"
+              variant="primary">
+              Supprimer définitivement
+            </b-button>
+            <b-button
+              @click="hideModal()"
+              block
+              class="mt-2"
+              variant="danger">
+              Annuler
+            </b-button>
+          </b-modal>
+
           <div v-if="requestSend" class="good-send">
             Bien reçu !
           </div>
@@ -50,7 +75,7 @@
     data () {
       return {
         requestSend: false,
-        putUrl: '/api/need-help',
+        serverMiddlewareUrl: '/api/need-help',
         form: {
           id: undefined,
           nom: undefined,
@@ -119,10 +144,25 @@
           autres: this.form.helpFor.selected.includes('autres')
         }
 
-        axios.put(this.putUrl, sendedData).then((response) => {
+        axios.put(this.serverMiddlewareUrl, sendedData).then((response) => {
           if (response.status === 200) {
             localStorage.setItem('myInfos_need', JSON.stringify(this.form))
             this.requestSend = true
+          }
+        })
+      },
+      displayModal () {
+        this.$refs['delete-help-proposal-modal'].show()
+      },
+      hideModal () {
+        this.$refs['delete-help-proposal-modal'].hide()
+      },
+      deleteHelper () {
+        axios.delete(this.serverMiddlewareUrl + '/' + this.form.id).then((response) => {
+          if (response.status === 200) {
+            localStorage.removeItem('myInfos_need')
+            this.hideModal()
+            this.$router.push({ path: '/' })
           }
         })
       }
