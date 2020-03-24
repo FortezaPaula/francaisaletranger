@@ -1,8 +1,5 @@
 <template>
   <div class="footer">
-    <b-row align-h="center">
-      -
-    </b-row>
     <b-row align-v="center">
       <b-col>
         <a
@@ -45,8 +42,20 @@
 
 <style lang="scss" scoped>
   .footer {
-    height: $footer-height;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    min-height: $footer-height;
     text-align: center;
+    background-color: #eff1f5;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
   }
 
   svg {

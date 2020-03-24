@@ -1,5 +1,6 @@
 <template>
   <div class="form-need-help">
+    <BackToHome/>
     <h3>{{ $t('need-help') }}</h3>
     <p>
       Vous êtes Français à l’étranger et chercher une solution de logement ? Vous avez besoin de conseils et d’un appui
@@ -23,11 +24,12 @@
 
 <script>
   import Form from '@/components/Form'
+  import BackToHome from '@/components/BackToHome'
 
   export default {
     name: 'NeedHelp',
 
-    components: { Form },
+    components: { BackToHome, Form },
 
     beforeMount () {
       if (localStorage.myInfos_need) {

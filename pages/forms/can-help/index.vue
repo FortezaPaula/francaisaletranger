@@ -1,5 +1,6 @@
 <template>
   <div class="form-can-help">
+    <BackToHome />
     <h3>{{ $t('can-help') }}</h3>
     <p>
       Les gouvernements du monde entier ont annoncé des mesures fortes pour ralentir la propagation du Covid-19 et
@@ -32,11 +33,12 @@
 
 <script>
   import Form from '@/components/Form'
+  import BackToHome from '@/components/BackToHome'
 
   export default {
     name: 'CanHelp',
 
-    components: { Form }
+    components: { BackToHome, Form }
   }
 </script>
 

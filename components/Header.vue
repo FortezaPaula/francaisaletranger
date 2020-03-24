@@ -2,8 +2,10 @@
   <div class="header">
     <nuxt-link to="/">
       <img src="~/static/logo.jpg" class="logo" alt="Logo République Française">
-      {{ $t('app-title') }}
     </nuxt-link>
+    <span class="title">
+      {{ $t('app-title') }}
+      </span>
   </div>
 </template>
 
@@ -23,7 +25,15 @@
 
 <style lang="scss" scoped>
   .header {
-    height: $header-height
+    display: flex;
+    align-items: center;
+    height: $header-height;
+    background-color: #eff1f5;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-left: 10px;
   }
 
   a {

@@ -12,6 +12,7 @@
         proximité, le site solidarite-Fde.beta.gouv.fr permet de favoriser cette entraide dans tous les pays concernés..
       </p>
     </b-row>
+    <br>
     <b-row class="help-buttons">
       <b-col md="6" sm="12" class="alert-info">
         <h3>Je suis Français à l’étranger et j’ai besoin d’aide </h3>
@@ -54,6 +55,7 @@
         </nuxt-link>
       </b-col>
     </b-row>
+    <br>
     <b-row>
       <b-col style="text-align: center">
         <nuxt-link to="/comment-ca-marche">
@@ -76,6 +78,7 @@
         </nuxt-link>
       </b-col>
     </b-row>
+    <br>
   </b-container>
 </template>
 

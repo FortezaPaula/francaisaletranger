@@ -17,11 +17,10 @@ body {
   background-color: white;
 }
 a {
-  text-decoration: none;
+  color: #060bbb;
   transition: all 0.2s ease-in-out;
   &:hover {
     color: inherit;
-    text-decoration: none;
   }
 }
 p {
