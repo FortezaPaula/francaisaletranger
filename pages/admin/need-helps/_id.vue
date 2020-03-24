@@ -66,7 +66,7 @@
       return {
         maxDistance: 10000,
         needer: {},
-        showNeederLoader: false,
+        showNeederLoader: true,
         helpers: []
       }
     },
@@ -76,16 +76,15 @@
     },
     methods: {
       fetchNeeder () {
-        const self = this
         axios.get(`/api/need-help/${this.$route.params.id}`, {
           params: {
             access_token: accessToken()
           }
-        }).then(function (response) {
-          self.needer = response.data
-          self.showNeederLoader = false
+        }).then((response) => {
+          this.needer = response.data
+          this.showNeederLoader = false
 
-          if (self.needer.helper_id === null) {
+          if (this.needer.helper_id === null) {
             axios.get('/api/matching/', {
               params: {
                 id: this.$route.params.id,
