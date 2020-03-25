@@ -224,6 +224,10 @@
           return
         }
 
+        if (!this.form.helpFor.selected.includes('hebergement')) {
+          this.form.helpFor.hebergement_number = 0
+        }
+
         const sendedData = {
           nom: this.form.nom,
           prenom: this.form.prenom,
@@ -233,7 +237,7 @@
             lat: this.form.position.latitude,
             lng: this.form.position.longitude
           },
-          nombre_hebergement: this.form.helpFor.selected.includes('hebergement') ? this.form.helpFor.hebergement_number : 0,
+          nombre_hebergement: this.form.helpFor.hebergement_number,
           approvisionnement: this.form.helpFor.selected.includes('approvisionnement'),
           garde_enfants: this.form.helpFor.selected.includes('enfants'),
           autres: this.form.helpFor.selected.includes('autres')
