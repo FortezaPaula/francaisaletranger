@@ -1,26 +1,15 @@
 <template>
   <b-container class="home-page">
-    <b-row align-v="center">
-      <h2 class="subtitle">
-        {{ $t('baseline') }}
-      </h2>
-      <p>
-        Depuis le début de la crise du Covid-19, des milliers de Français se retrouvent bloqués à l’étranger et doivent
-        faire face à des problématiques multiples : hébergement, barrière linguistique, réapprovisionnement, etc. Pour
-        répondre à ces enjeux, la solidarité s’organise à travers le monde afin de trouver des solutions sur place en
-        s’appuyant sur le réseau dense des Français résidant à l'étranger. En mettant en contact les concitoyens à
-        proximité, le site solidarite-Fde.beta.gouv.fr permet de favoriser cette entraide dans tous les pays concernés..
-      </p>
-    </b-row>
-    <br>
     <b-row class="help-buttons">
       <b-col md="6" sm="12" class="alert-info">
-        <h3>Je suis Français à l’étranger et j’ai besoin d’aide </h3>
+        <h2 style="min-height: 70px;">Je suis Français à l’étranger et j’ai besoin d’aide </h2>
+        <br>
         <p class="info-help">
           Vous n’avez pas encore de solution de retour en France et vous cherchez un hébergement ? Vous avez besoin de
           conseils pour vos démarches pratiques ? En confinement, vous avez besoin d’aide pour vous réapprovisionner en
           eau, nourriture, médicaments ?
         </p>
+        <br>
         <nuxt-link to="/forms/need-help">
           <b-button variant="primary">
             {{ $t('need-help') }}
@@ -35,14 +24,16 @@
         </nuxt-link>
       </b-col>
       <b-col md="6" sm="12" class="alert-success">
-        <h3>Je suis résident à l’étranger et je peux proposer mon aide</h3>
+        <h2 style="min-height: 70px;">Je suis résident à l’étranger et je peux proposer mon aide</h2>
+        <br>
         <p class="info-help">
           Vous pouvez apporter des conseils ou une solution d’hébergement à un ressortissant à proximité de chez vous ?
           Vous pouvez proposer de l’aide pour faire des courses dans votre quartier ou pour un réapprovisionnement en
           produits de première nécessité ?
         </p>
+        <br>
         <nuxt-link to="/forms/can-help">
-          <b-button variant="success">
+          <b-button variant="danger">
             {{ $t('can-help') }}
           </b-button>
         </nuxt-link>
@@ -63,8 +54,19 @@
             Comment ça marche ?
           </b-button>
         </nuxt-link>
-        <br>
-        <br>
+      </b-col>
+    </b-row>
+    <b-row align-v="center">
+      <p style="padding: 20px;">
+        Depuis le début de la crise du Covid-19, des milliers de Français se retrouvent bloqués à l’étranger et doivent
+        faire face à des problématiques multiples : hébergement, barrière linguistique, réapprovisionnement, etc. Pour
+        répondre à ces enjeux, la solidarité s’organise à travers le monde afin de trouver des solutions sur place en
+        s’appuyant sur le réseau dense des Français résidant à l'étranger. En mettant en contact les concitoyens à
+        proximité, le site solidarite-Fde.beta.gouv.fr permet de favoriser cette entraide dans tous les pays concernés.
+      </p>
+    </b-row>
+    <b-row>
+      <b-col style="text-align: center">
         Retrouvez les informations officielles en direct sur le site du
         <a
           href="https://www.diplomatie.gouv.fr/fr/le-ministere-et-son-reseau/actualites-du-ministere/informations-coronavirus-covid-19/"
@@ -76,9 +78,10 @@
         <nuxt-link to="/faq">
           FAQ
         </nuxt-link>
+        <br>
+        <br>
       </b-col>
     </b-row>
-    <br>
   </b-container>
 </template>
 
@@ -104,7 +107,28 @@
 
 <style lang="scss">
   .home-page {
-    max-width: 1000px;
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 1.2rem;
+
+    &.container {
+      padding: 0 !important;
+    }
+
+    .alert-info {
+      color: white;
+      background-color: #004aad;
+    }
+
+    .alert-success {
+      color: white;
+      background-color: #dc3c37;
+    }
+
+    button {
+      border-radius: 0;
+    }
   }
 
   .row {
@@ -112,9 +136,13 @@
   }
 
   .help-buttons {
-    margin-top: 1rem;
     text-align: center;
-    margin-bottom: 1rem;
+
+    button {
+      background-color: transparent;
+      border: white 1px solid;
+      font-weight: bold;
+    }
   }
 
   .info-help {

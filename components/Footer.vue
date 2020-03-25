@@ -48,7 +48,12 @@
     justify-content: space-between;
     min-height: $footer-height;
     text-align: center;
-    background-color: #eff1f5;
+    background-color: #373a3c;
+    color: white;
+
+    a {
+      color: white;
+    }
   }
 
   .row {

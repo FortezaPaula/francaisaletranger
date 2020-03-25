@@ -28,12 +28,12 @@
     display: flex;
     align-items: center;
     height: $header-height;
-    background-color: #eff1f5;
   }
 
   .title {
     font-size: 1.5rem;
     margin-left: 10px;
+    font-weight: bold;
   }
 
   a {
@@ -42,7 +42,7 @@
   }
 
   .logo {
-    width: 100px;
+    width: 180px;
     margin: auto;
   }
 </style>
