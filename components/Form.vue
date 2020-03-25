@@ -75,6 +75,20 @@
         </b-form-invalid-feedback>
       </b-form-checkbox-group>
     </b-form-group>
+    <b-form-group>
+      <b-form-checkbox
+        id="cgu"
+        v-model="$v.form.cgu.$model"
+        type="checkbox"
+        name="cgu"
+        :state="validateState('cgu')"
+      >
+        J'ai pris connaissance et j'accepte les <a href="/conditions-d-utilisation" target="_blank">CGU</a>
+      </b-form-checkbox>
+      <b-form-invalid-feedback :state="validateState('cgu')">
+        Veuillez lire et accepter les conditions générales d'utilisation s'il vous plait.
+      </b-form-invalid-feedback>
+    </b-form-group>
     <br>
     <div class="button-go">
       <b-button v-if="!requestSend" type="submit" :variant="typeForm === 'need' ? 'primary' : 'success'">
@@ -89,7 +103,7 @@
 
 <script>
   import axios from 'axios'
-  import { required, minLength, email, requiredIf } from 'vuelidate/lib/validators'
+  import { required, minLength, email, requiredIf, sameAs } from 'vuelidate/lib/validators'
   import availableHelpers from '../helpers/availableHelpers'
   import Places from '@/components/Places'
 
@@ -135,7 +149,8 @@
             selected: [],
             hebergement_number: 1,
             options: availableHelpers()
-          }
+          },
+          cgu: false
         }
       }
     },
@@ -170,6 +185,9 @@
               return !this.geoloc
             })
           }
+        },
+        cgu: {
+          sameAs: sameAs(() => true)
         }
       }
     },
@@ -184,6 +202,11 @@
       validateState (name) {
         const { $dirty, $error } = this.$v.form[name]
         return $dirty ? !$error : null
+      },
+
+      validateCGU () {
+        const state = this.$v.form.cgu.$model
+        return state
       },
 
       validateStateHelpFor (name) {
