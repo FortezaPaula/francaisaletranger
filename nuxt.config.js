@@ -7,7 +7,6 @@ export default {
   mode: 'universal',
 
   modern: true,
-
   /*
    ** Headers of the page
    */
@@ -62,14 +61,13 @@ export default {
     [
       'nuxt-i18n',
       {
-        locales: ['fr', 'en'],
+        locales: ['fr'],
         strategy: 'prefix_and_default',
         defaultLocale: 'fr',
         vueI18n: {
           fallbackLocale: 'fr',
           messages: {
-            fr: require('./locales/fr.json'),
-            en: require('./locales/en.json')
+            fr: require('./locales/fr.json')
           }
         }
       }
