@@ -1,7 +1,7 @@
 <template>
-  <div class="form-need-help">
+  <div class="form-need-help cadre">
     <BackToHome/>
-    <h3>{{ $t('need-help') }}</h3>
+    <h2>{{ $t('need-help') }}</h2>
     <p>
       Vous êtes Français à l’étranger et chercher une solution de logement ? Vous avez besoin de conseils et d’un appui
       pour vos démarches pratiques ? Actuellement en confinement à l’étranger, vous avez besoin d’aide pour vous
@@ -41,9 +41,12 @@
 
 <style lang="scss">
   .form-need-help {
-    padding: 10px;
-    max-width: 900px;
-    margin: auto;
+    max-width: 700px;
+    margin: auto auto 30px;
+
+    p {
+      margin-bottom: 10px;
+    }
 
     .form {
       max-width: 500px;

@@ -2,10 +2,15 @@
   <div class="header">
     <nuxt-link to="/">
       <img src="~/static/logo.jpg" class="logo" alt="Logo République Française">
+      <img src="~/static/marianne_simple_simple.svg" class="logo-mobile">
     </nuxt-link>
-    <span class="title">
+    <div class="title">
       {{ $t('app-title') }}
-      </span>
+      <br>
+      <h5>
+        Plateforme d'entraide contre l'épidémie du Covid-19
+      </h5>
+    </div>
   </div>
 </template>
 
@@ -41,8 +46,27 @@
     color: black;
   }
 
-  .logo {
-    width: 180px;
-    margin: auto;
+  @media all and (max-width: 576px) {
+    .logo-mobile {
+      width: 100px;
+      margin: auto;
+      display: block;
+    }
+
+    .logo {
+      display: none
+    }
+  }
+
+  @media all and (min-width: 577px) {
+    .logo {
+      width: 170px;
+      margin: auto;
+      display: block;
+    }
+
+    .logo-mobile {
+      display: none;
+    }
   }
 </style>

@@ -109,8 +109,13 @@
   .home-page {
     width: 100%;
     max-width: 100%;
+    margin-top: 20px;
+    font-size: 1.1rem;
 
-    font-size: 1.2rem;
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
 
     &.container {
       padding: 0 !important;
@@ -137,6 +142,10 @@
 
   .help-buttons {
     text-align: center;
+
+    a {
+      color: white;
+    }
 
     button {
       background-color: transparent;
