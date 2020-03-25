@@ -28,8 +28,8 @@ export default {
     this.$el.appendChild(this.input)
 
     this.instance = places({
-      apiKey: 'bddd2983234f29a9d15b09df4ba4a87c',
-      appId: 'pl18UY28VFMH',
+      appId: process.env.ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_API_KEY,
       type: this.type,
       container: this.input
     })
