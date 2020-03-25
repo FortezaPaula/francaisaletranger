@@ -38,7 +38,13 @@
   export default {
     name: 'CanHelp',
 
-    components: { BackToHome, Form }
+    components: { BackToHome, Form },
+
+    beforeMount () {
+      if (localStorage.myInfos_can) {
+        this.$router.push({ path: '/can-help/dashboard' })
+      }
+    }
   }
 </script>
 
