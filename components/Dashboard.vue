@@ -18,7 +18,7 @@
     </div>
     <div>
       <b-form @submit="onSubmit">
-        <b-form-group label="Je peux aider pour :">
+        <b-form-group :label=labelCheckBoxHelp>
           <b-form-checkbox-group
             v-model="$v.form.helpFor.selected.$model"
             :options="form.helpFor.options"
@@ -44,16 +44,16 @@
         <br>
         <div class="button-go">
           <b-button type="submit" variant="primary">
-            Mettre à jour mes capacités d'aide
+            Mettre à jour mes {{typeHelpDemand}}s d'aide
           </b-button>
           <b-button @click="displayModal()" variant="danger">
-            Supprimer ma proposition d'aide
+            Supprimer ma {{typeHelpDemand}} d'aide
           </b-button>
 
           <b-modal
             hide-footer
             ref="delete-help-proposal-modal"
-            title="Je supprime ma proposition d'aide :"
+            :title="confirmMessage"
           >
             <b-button
               @click="deleteHelper()"
@@ -94,6 +94,18 @@
       typeForm: {
         type: String,
         default: ''
+      },
+      typeHelp: {
+        type: String,
+        default: ''
+      },
+      typeHelpDemand: {
+        type: String,
+        default: ''
+      },
+      labelCheckBoxHelp: {
+        type: String,
+        default: ''
       }
     },
     data () {
@@ -115,7 +127,8 @@
             hebergement_number: 1,
             options: availableHelpers()
           }
-        }
+        },
+        confirmMessage: ''
       }
     },
     validations: {
@@ -127,15 +140,15 @@
     },
 
     beforeMount () {
-
-    },
-
-    mounted () {
       if (!localStorage.getItem('myInfos_' + this.typeForm)) {
         this.$router.push({ path: '/forms/' + this.typeForm + '-help' })
       } else {
         this.form = JSON.parse(localStorage.getItem('myInfos_' + this.typeForm))
+        this.confirmMessage = 'Je supprime ma ' + this.typeHelpDemand + ' d\'aide :'
       }
+    },
+
+    mounted () {
       this.$refs.infoBanner.style.display = 'block'
     },
 

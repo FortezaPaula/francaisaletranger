@@ -4,6 +4,9 @@
     <Dashboard
       server-middleware-url="/api/need-help"
       type-form="need"
+      type-help="besoin"
+      type-help-demand="demande"
+      labelCheckBoxHelp="J'ai besoin d'aide pour :"
     />
   </div>
 </template>

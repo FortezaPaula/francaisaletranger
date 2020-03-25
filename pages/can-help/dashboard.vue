@@ -4,6 +4,9 @@
     <Dashboard
       server-middleware-url="/api/can-help"
       type-form="can"
+      type-help="proposition"
+      type-help-demand="proposition"
+      labelCheckBoxHelp="Je peux aider pour :"
     />
   </div>
 </template>
