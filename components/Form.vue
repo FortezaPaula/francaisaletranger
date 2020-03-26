@@ -84,6 +84,7 @@
         v-model="$v.form.cgu.$model"
         type="checkbox"
         name="cgu"
+        class="cgu"
         :state="validateState('cgu')"
       >
         J'ai pris connaissance et j'accepte les <a href="/conditions-d-utilisation" target="_blank">CGU</a>.
@@ -291,10 +292,6 @@
 </script>
 
 <style lang="scss">
-  .button-go {
-    text-align: center;
-  }
-
   legend {
     font-weight: bold;
   }
@@ -316,6 +313,10 @@
 
   .personal-data-input {
     max-width: 400px;
+  }
+
+  .cgu {
+    margin-top: 2em;
   }
 
 </style>
