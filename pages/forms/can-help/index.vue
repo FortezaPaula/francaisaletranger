@@ -3,7 +3,6 @@
     <BackToHome/>
     <h2>{{ $t('can-help') }}</h2>
     <p>
-
       Face à la crise du Covid-19 et aux mesures d’urgence prises par les gouvernements à travers le monde, la
       solidarité
       entre ressortissants à l’étranger n’a jamais été aussi importante.
@@ -13,17 +12,13 @@
       actuelle, nous avons besoin de vous.
     </p>
     <p>
-      Toute mise en relation doit se faire en respectant les consignes sanitaires et de confinement ( (#mettre en gras «
-      respectant les consignes sanitaires et de confinement"#) du pays dans lequel vous vous trouvez actuellement. Si
+      Toute mise en relation doit se faire en <strong>respectant les consignes sanitaires et de confinement</strong>
+      du pays dans lequel vous vous trouvez actuellement. Si
       vous
       proposez une aide pour les courses ou la garde d’enfants, il ne sert à rien de prendre des risques inutiles :
-      engagez-vous seulement si vous êtes en bonne santé et avez moins de 60 ans (#mettre en gras ‘engagez-vous…60ans#).
-      Vous pouvez vérifiez si vous ne faites pas partie des publics à risque sur le site du ministère de la santé
-      (#mettre
-      ce lien sur « ministère de la santé » :
-      <a
-        href="https://solidarites-sante.gouv.fr/actualites/actualites-du-ministere/article/coronavirus-qui-sont-les-personnes-fragiles">
-        https://solidarites-sante.gouv.fr/actualites/actualites-du-ministere/article/coronavirus-qui-sont-les-personnes-fragiles</a>
+      <strong>engagez-vous seulement si vous êtes en bonne santé et avez moins de 60 ans</strong>.
+      Vous pouvez vérifiez si vous ne faites pas partie des publics à risque sur le site du
+      <a href="https://solidarites-sante.gouv.fr/actualites/actualites-du-ministere/article/coronavirus-qui-sont-les-personnes-fragiles">ministère de la santé</a>.
     </p>
     <Form
       class="form"
