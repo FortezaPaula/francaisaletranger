@@ -68,7 +68,7 @@
         faire face à des problématiques multiples : hébergement, barrière linguistique, réapprovisionnement, etc. Pour
         répondre à ces enjeux, la solidarité s’organise à travers le monde afin de trouver des solutions sur place en
         s’appuyant sur le réseau dense des Français résidant à l'étranger. En mettant en contact les concitoyens à
-        proximité, le site solidarite-Fde.beta.gouv.fr permet de favoriser cette entraide dans tous les pays concernés.
+        proximité, le site solidarite-fde.beta.gouv.fr permet de favoriser cette entraide dans tous les pays concernés.
       </p>
     </b-row>
     <b-row>

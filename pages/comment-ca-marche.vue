@@ -2,7 +2,7 @@
   <b-container class="comment-ca-marche">
     <BackToHome />
     <h3 class="subtitle">
-      Qu’est-ce que la plateforme solidarite-Fde.beta.gouv.fr ?
+      Qu’est-ce que la plateforme solidarite-fde.beta.gouv.fr ?
     </h3>
     <p>
       La plateforme solidarite-fde.beta.gouv.fr est une initiative visant à renforcer les liens de solidarité pour les
@@ -10,7 +10,7 @@
       le monde pour ralentir la propagation du virus. Des milliers de Français se retrouvent sur le court terme sans
       possibilité de retour sur le territoire national et doivent faire face à de nombreux obstacles sur place pour se
       loger, se réapprovisionner ou avoir de l’information. En mettant en contact les concitoyens à proximité, le site
-      solidarite-Fde.beta.gouv.fr permet de faciliter le renforcement des liens de solidarité qui émergent dans tous les
+      solidarite-fde.beta.gouv.fr permet de faciliter le renforcement des liens de solidarité qui émergent dans tous les
       pays concernés.
     </p>
     <br>
