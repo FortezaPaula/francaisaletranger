@@ -23,7 +23,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .can-help-done {
     max-width: 700px;
     margin: auto;

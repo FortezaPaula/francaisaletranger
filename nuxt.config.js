@@ -31,7 +31,8 @@ export default {
    ** Global CSS
    */
   css: [
-    '~/styles/reboot.scss'
+    '~/styles/reboot.scss',
+    '~/styles/common.scss'
   ],
   /*
    ** Plugins to load before mounting the App
