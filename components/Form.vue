@@ -94,7 +94,7 @@
     </b-form-group>
     <br>
     <div class="button-go">
-      <b-button v-if="!requestSend" type="submit" :variant="primary">
+      <b-button v-if="!requestSend" type="submit">
         S'inscrire
       </b-button>
       <div v-else class="good-send">
