@@ -14,7 +14,6 @@
         solidarite-fde.beta.gouv.fr permet de faciliter le renforcement des liens de solidarité qui émergent dans tous les
         pays concernés.
       </p>
-      <br>
       <h3 class="subtitle">
         Qui peut proposer de l’aide ?
       </h3>
@@ -25,7 +24,6 @@
         seules les personnes en bonne santé et de moins de 60 ans doivent se porter volontaires afin de ne pas prendre de
         risques inutiles.
       </p>
-      <br>
       <h3 class="subtitle">
         Qui peut bénéficier de l’aide ?
       </h3>
@@ -36,7 +34,6 @@
         période
         de crise sanitaire sur place peuvent s’inscrire sur la plateforme.
       </p>
-      <br>
       <h3 class="subtitle">
         Comment aider ?
       </h3>

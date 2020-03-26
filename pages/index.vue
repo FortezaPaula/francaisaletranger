@@ -185,6 +185,7 @@
     font-size: 1.6rem;
     color: #526488;
     word-spacing: 5px;
+    padding-top: 15px;
     padding-bottom: 15px;
   }
 
