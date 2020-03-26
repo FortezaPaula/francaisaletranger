@@ -18,7 +18,7 @@
       proposez une aide pour les courses ou la garde d’enfants, il ne sert à rien de prendre des risques inutiles :
       <strong>engagez-vous seulement si vous êtes en bonne santé et avez moins de 60 ans</strong>.
       Vous pouvez vérifiez si vous ne faites pas partie des publics à risque sur le site du
-      <a href="https://solidarites-sante.gouv.fr/actualites/actualites-du-ministere/article/coronavirus-qui-sont-les-personnes-fragiles">ministère de la santé</a>.
+      <a href="https://solidarites-sante.gouv.fr/actualites/actualites-du-ministere/article/coronavirus-qui-sont-les-personnes-fragiles" target="_blank">ministère de la santé</a>.
     </p>
     <Form
       class="form"
