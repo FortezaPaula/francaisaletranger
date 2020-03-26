@@ -2,7 +2,7 @@
   <b-container class="home-page">
     <b-row class="help-buttons">
       <b-col md="6" sm="12" class="alert-info">
-        <h2 style="min-height: 70px;">Je suis Français à l’étranger et j’ai besoin d’aide </h2>
+        <h2 style="min-height: 70px;"><nuxt-link to="/forms/need-help">Je suis Français à l’étranger<br />et j’ai besoin d’aide</nuxt-link></h2>
         <br>
         <p class="info-help">
           Vous n’avez pas encore de solution de retour en France et vous cherchez un hébergement ? Vous avez besoin de
@@ -24,7 +24,7 @@
         </nuxt-link>
       </b-col>
       <b-col md="6" sm="12" class="alert-success">
-        <h2 style="min-height: 70px;">Je suis résident à l’étranger et je peux proposer mon aide</h2>
+        <h2 style="min-height: 70px;"><nuxt-link to="/forms/can-help">Je suis résident à l’étranger<br />et je peux proposer mon aide</nuxt-link></h2>
         <br>
         <p class="info-help">
           Vous pouvez apporter des conseils ou une solution d’hébergement à un ressortissant à proximité de chez vous ?

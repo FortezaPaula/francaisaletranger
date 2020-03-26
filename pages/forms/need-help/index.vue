@@ -49,8 +49,8 @@
     }
 
     .form {
-      max-width: 500px;
-      margin: 20px auto auto;
+      max-width: 400px;
+      margin: 40px 0;
     }
   }
 </style>

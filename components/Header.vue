@@ -5,8 +5,8 @@
       <img src="~/static/marianne_simple_simple.svg" class="logo-mobile">
     </nuxt-link>
     <div class="title">
-      {{ $t('app-title') }}
-      <br>
+      <nuxt-link to="/">{{ $t('app-title') }}</a></nuxt-link>
+      <br />
       <h5>
         Plateforme d'entraide contre l'épidémie du Covid-19
       </h5>
