@@ -83,7 +83,7 @@
         et dans notre
         <nuxt-link to="/faq">
           FAQ
-        </nuxt-link>
+        </nuxt-link>.
         <br>
         <br>
       </b-col>
