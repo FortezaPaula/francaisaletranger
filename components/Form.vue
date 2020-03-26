@@ -42,12 +42,15 @@
         Merci de vous localiser
       </b-form-invalid-feedback>
     </b-form-group>
-    <b-form-group label="Ville">
-      {{form.position.ville}}
-    </b-form-group>
-    <b-form-group label="Pays">
-      {{form.position.pays}}
-    </b-form-group>
+    <div v-if="localised">
+      <p>
+        <strong>Ville</strong>&nbsp;: {{form.position.ville}}
+      </p>
+      <p>
+        <strong>Pays</strong>&nbsp;: {{form.position.pays}}
+      </p>
+    </div>
+    <br>
     <b-form-group :label="titleHelps">
       <b-form-checkbox-group
         v-model="$v.form.helpFor.selected.$model"
@@ -134,6 +137,7 @@
         geoloc: false,
         pendingGeoloc: false,
         requestSend: false,
+        localised: false,
         form: {
           id: undefined,
           nom: undefined,
@@ -236,6 +240,7 @@
         this.form.position.longitude = suggestion.latlng.lng
         this.form.position.ville = suggestion.name
         this.form.position.pays = suggestion.country
+        this.localised = true
       },
 
       onSubmit (event) {
