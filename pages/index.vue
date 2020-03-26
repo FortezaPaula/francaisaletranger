@@ -39,7 +39,7 @@
         </p>
         <br>
         <nuxt-link to="/forms/can-help">
-          <b-button variant="danger">
+          <b-button variant="primary">
             {{ $t('can-help') }}
           </b-button>
         </nuxt-link>
