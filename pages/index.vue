@@ -137,6 +137,10 @@
       color: white;
       background-color: $purple;
       a { text-decoration: none; }
+
+      button:hover {
+        color: $purple;
+      }
     }
 
     button {
@@ -163,6 +167,12 @@
       background-color: transparent;
       border: white 1px solid;
       font-weight: bold;
+
+      &:hover {
+        background-color: #fff;
+        color: $blue;
+        border-color: white;
+      }
     }
   }
 
