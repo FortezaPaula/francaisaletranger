@@ -1,6 +1,6 @@
 <template>
   <div class="admin-need-help">
-    <h1>Demande d’aide</h1>
+    <h1>Demandes d’aide</h1>
     <div v-if="showNeederLoader">
       Chargement…
     </div>
@@ -12,11 +12,10 @@
       </div>
       <div class="col-md-8" v-if="needer.helper_id === null">
         <div>
-          Nombre d'aidant potentiel :
+          Nombre d'aidants potentiels :
           <span style="font-weight: bold; font-size:1.2rem" class="text-success">{{ helpers.length }}</span>
           <ul>
-            <!--            <li>qui répondent <b>exactement</b> à tous les critères de besoin</li>-->
-            <li>dans les <b>{{ maxDistance / 1000 }} kms</b> autour de la personne</li>
+            <li>dans les <b>{{ maxDistance / 1000 }} km</b> autour de la personne</li>
           </ul>
         </div>
         <table cellpadding="10px">
@@ -24,7 +23,7 @@
             <th>Prénom</th>
             <th>Nom</th>
             <th>Distance (km)</th>
-            <th>Nb critère exact</th>
+            <th>Nb critères exacts</th>
           </tr>
           <tr
             v-for="(helper, index) in helpers"

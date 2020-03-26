@@ -33,7 +33,7 @@
         Cette adresse e-mail est invalide.
       </b-form-invalid-feedback>
     </b-form-group>
-    <b-form-group label="Localisation actuelle">
+    <b-form-group label="Localisation">
       <div v-if="needer.gps_coordinates && needer.gps_coordinates.lat && needer.gps_coordinates.lng" class="position">
         Latitude: {{ needer.gps_coordinates.lat }}
         <br>
