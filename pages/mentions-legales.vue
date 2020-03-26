@@ -1,30 +1,32 @@
 <template>
   <b-container class="mentions-legales">
     <BackToHome />
-    <p>
-      Ce service est mis à disposition par le Ministère de l’Europe et des Affaires étrangères ; il vise à mettre en
-      relation des Françaises et Français situés hors des frontières afin qu’ils puissent s’entraider dans le contexte
-      de crise sanitaire liée au covid-19.
-    </p>
-    <br>
-    <h5>Editeur</h5>
-    <p>
-      Ministère de l'Europe et des Affaires étrangères
-    </p>
-    <br>
-    <h5>Directeur de la publication</h5>
-    <p>
-      Henri Verdier, ambassadeur de France pour le numérique.
-    </p>
-    <br>
-    <h5>Hébergeur</h5>
-    <p>
-      Salesforce.com France SAS
+    <div class="cadre">
+      <p>
+        Ce service est mis à disposition par le Ministère de l’Europe et des Affaires étrangères ; il vise à mettre en
+        relation des Françaises et Français situés hors des frontières afin qu’ils puissent s’entraider dans le contexte
+        de crise sanitaire liée au covid-19.
+      </p>
       <br>
-      3 Avenue Octave Gréard - 75007 Paris
+      <h5>Editeur</h5>
+      <p>
+        Ministère de l'Europe et des Affaires étrangères
+      </p>
       <br>
-      Tél: +33 1 72 10 94 00
-    </p>
+      <h5>Directeur de la publication</h5>
+      <p>
+        Henri Verdier, ambassadeur de France pour le numérique.
+      </p>
+      <br>
+      <h5>Hébergeur</h5>
+      <p>
+        Salesforce.com France SAS
+        <br>
+        3 Avenue Octave Gréard - 75007 Paris
+        <br>
+        Tél: +33 1 72 10 94 00
+      </p>
+    </div>
   </b-container>
 </template>
 
