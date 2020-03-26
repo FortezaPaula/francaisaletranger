@@ -1,28 +1,14 @@
 <template>
-  <div class="can-help-done">
-    <div class="cadre">
-      <h2>Merci, nous avons bien reçu votre demande.</h2>
-      <br>
-      <p>
-        Un contact par mail sera établi dès qu'une personne à proximité se déclare disponible pour vous aider.
-      </p>
-      <br/>
-      <BackToHome/>
-    </div>
-  </div>
+  <Finish title="Merci, nous avons bien reçu votre demande.">
+    <p>
+      Un contact par mail sera établi dès qu'une personne à proximité se déclare disponible pour vous aider.
+    </p>
+  </Finish>
 </template>
 
 <script>
-  import BackToHome from '../../../components/BackToHome'
+  import Finish from '@/components/Finish'
   export default {
-    name: 'Finish',
-    components: { BackToHome }
+    components: { Finish }
   }
 </script>
-
-<style>
-  .can-help-done {
-    max-width: 700px;
-    margin: auto;
-  }
-</style>
