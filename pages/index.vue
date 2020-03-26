@@ -211,4 +211,11 @@
   .links {
     padding-top: 15px;
   }
+
+  .cadre {
+    background-color: #f5faff;
+    padding: 50px;
+    margin: auto auto 70px;
+    border: 1px solid #eaf1f9;
+  }
 </style>
