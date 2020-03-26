@@ -1,6 +1,6 @@
 <template>
   <b-form @submit="onSubmit">
-    <b-form-group label="Votre nom">
+    <b-form-group label="Votre nom" class="personal-data-input">
       <b-form-input
         id="nom"
         v-model="$v.form.nom.$model"
@@ -12,7 +12,7 @@
         Ce champ est obligatoire et doit faire au moins 2 caractères.
       </b-form-invalid-feedback>
     </b-form-group>
-    <b-form-group label="Votre prénom">
+    <b-form-group label="Votre prénom" class="personal-data-input">
       <b-form-input
         id="prenom"
         v-model="$v.form.prenom.$model"
@@ -24,7 +24,7 @@
         Ce champ est obligatoire et doit faire au moins 2 caractères.
       </b-form-invalid-feedback>
     </b-form-group>
-    <b-form-group label="Votre email">
+    <b-form-group label="Votre email" class="personal-data-input">
       <b-form-input
         id="email"
         v-model="$v.form.email.$model"
@@ -36,7 +36,7 @@
         Ce n'est pas un email valide.
       </b-form-invalid-feedback>
     </b-form-group>
-    <b-form-group label="Votre localisation actuelle">
+    <b-form-group label="Votre localisation actuelle" class="personal-data-input">
       <Places type="city" @change="setCity($event.suggestion)"/>
       <b-form-invalid-feedback :state="validatePosition()">
         Merci de vous localiser
@@ -313,4 +313,9 @@
       text-align: center;
     }
   }
+
+  .personal-data-input {
+    max-width: 400px;
+  }
+
 </style>

@@ -49,7 +49,7 @@
     }
 
     .form {
-      max-width: 400px;
+      max-width: 500px;
       margin: 40px 0;
     }
   }
