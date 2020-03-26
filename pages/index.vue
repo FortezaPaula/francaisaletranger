@@ -2,7 +2,10 @@
   <b-container class="home-page">
     <b-row class="help-buttons">
       <b-col md="6" sm="12" class="alert-info">
-        <h2 style="min-height: 70px;"><nuxt-link to="/forms/need-help">Je suis Français à l’étranger<br />et j’ai besoin d’aide</nuxt-link></h2>
+        <nuxt-link to="/forms/need-help">
+        <img src="~/static/Femme-particulier@0,5x.png" class="hero" alt="">
+        <h2 style="min-height: 70px;">Je suis Français à l’étranger<br />et j’ai besoin d’aide</h2>
+        </nuxt-link>
         <br>
         <p class="info-help">
           Vous n’avez pas encore de solution de retour en France et vous cherchez un hébergement ? Vous avez besoin de
@@ -24,8 +27,11 @@
         </nuxt-link>
       </b-col>
       <b-col md="6" sm="12" class="alert-success">
-        <h2 style="min-height: 70px;"><nuxt-link to="/forms/can-help">Je suis résident à l’étranger<br />et je peux proposer mon aide</nuxt-link></h2>
-        <br>
+        <nuxt-link to="/forms/can-help">
+        <img src="~/static/yoga-accrobatique@0,5x.png" class="hero" alt="">
+        <h2 style="min-height: 70px;">Je suis résident à l’étranger<br />et je peux proposer mon aide</h2>
+        </nuxt-link>
+        <br />
         <p class="info-help">
           Vous pouvez apporter des conseils ou une solution d’hébergement à un ressortissant à proximité de chez vous ?
           Vous pouvez proposer de l’aide pour faire des courses dans votre quartier ou pour un réapprovisionnement en
@@ -123,16 +129,22 @@
 
     .alert-info {
       color: white;
-      background-color: #004aad;
+      background-color: $blue;
+      a { text-decoration: none; }
     }
 
     .alert-success {
       color: white;
-      background-color: #dc3c37;
+      background-color: $purple;
+      a { text-decoration: none; }
     }
 
     button {
       border-radius: 0;
+    }
+
+    img {
+      width: 250px;
     }
   }
 
@@ -180,7 +192,7 @@
   h3 {
     font-weight: 300;
     font-size: 1.3rem;
-    color: #526488;
+    color: $dark-blue;
     word-spacing: 5px;
     padding-bottom: 15px;
   }
