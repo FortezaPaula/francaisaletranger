@@ -209,11 +209,6 @@
         return $dirty ? !$error : null
       },
 
-      validateCGU () {
-        const state = this.$v.form.cgu.$model
-        return state
-      },
-
       validateStateHelpFor (name) {
         const { $dirty, $error } = this.$v.form.helpFor[name]
         return $dirty ? !$error : null
@@ -222,18 +217,6 @@
       validatePosition () {
         const { $dirty, $error } = this.$v.form.position.latitude
         return $dirty ? !$error : null
-      },
-
-      getGeoloc () {
-        this.pendingGeoloc = true
-
-        navigator.geolocation.getCurrentPosition((position) => {
-          this.pendingGeoloc = false
-          this.form.position.latitude = position.coords.latitude
-          this.form.position.longitude = position.coords.longitude
-        }, () => {
-          this.geoloc = false
-        })
       },
 
       setCity (suggestion) {
