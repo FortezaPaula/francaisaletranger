@@ -1,20 +1,20 @@
 <template>
-  <div class="dashboard">
+  <div class="cadre">
+    <h2>Tableau de bord</h2>
     <div ref="infoBanner" class="alert alert-info" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="deleteInfoBanner">
         <span aria-hidden="true">&times;</span>
       </button>
       {{ $t('info-banner-user-information') }}
     </div>
-    <h3>Tableau de bord</h3>
     <div>
-      Nom : {{ form.nom }}
+      <strong>Nom :</strong> {{ form.nom }}
     </div>
     <div>
-      Prénom : {{ form.prenom }}
+      <strong>Prénom :</strong> {{ form.prenom }}
     </div>
     <div>
-      Email : {{ form.email }}
+      <strong>Email :</strong> {{ form.email }}
     </div>
     <div>
       <b-form @submit="onSubmit">
@@ -215,9 +215,5 @@
 <style lang="scss" scoped>
   .alert {
     display: none;
-  }
-
-  .dashboard {
-    padding: 10px;
   }
 </style>
