@@ -42,7 +42,6 @@
 <style lang="scss">
   .form-need-help {
     max-width: 700px;
-    margin: auto auto 30px;
 
     p {
       margin-bottom: 10px;
