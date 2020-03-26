@@ -119,7 +119,7 @@
     font-size: 1.1rem;
 
     h2 {
-      margin-top: 20px;
+      margin-top: 0px;
       margin-bottom: 20px;
     }
 
