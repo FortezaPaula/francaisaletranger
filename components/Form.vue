@@ -86,7 +86,7 @@
         name="cgu"
         :state="validateState('cgu')"
       >
-        J'ai pris connaissance et j'accepte les <a href="/conditions-d-utilisation" target="_blank">CGU</a>
+        J'ai pris connaissance et j'accepte les <a href="/conditions-d-utilisation" target="_blank">CGU</a>.
       </b-form-checkbox>
       <b-form-invalid-feedback :state="validateState('cgu')">
         Veuillez lire et accepter les conditions générales d'utilisation s'il vous plait.

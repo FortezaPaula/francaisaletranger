@@ -14,7 +14,7 @@
 
 <style scoped>
   .back-to-home {
-    margin-bottom: 10px;
+    margin-bottom: 3em;
     font-size: 0.8rem;
   }
 </style>

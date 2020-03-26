@@ -14,15 +14,16 @@ html {
   margin: 0;
 }
 body {
-  color: black;
   background-color: white;
+  color: #191b3d;
   font-family: 'Source Sans Pro', sans-serif !important;
 }
 a {
-  color: #060bbb;
+  color: #2971C5;
+  text-decoration: underline;
   transition: all 0.2s ease-in-out;
   &:hover {
-    color: inherit;
+    color: #264b7f;
   }
 }
 p {
@@ -42,7 +43,9 @@ b, strong, .strong {
 }
 
 .cadre {
-  background-color: #ededed;
-  padding: 15px;
-  box-shadow: 0 7px 14px 0 rgba(60,66,87,.12), 0 3px 6px 0 rgba(0,0,0,.12);
+  background-color: #f5faff;
+  padding: 50px;
+  margin: auto auto 70px;
+  border: 1px solid #eaf1f9;
+  /*box-shadow: 0px 3px 15px rgba(0,0,0,0.2);*/
 }
