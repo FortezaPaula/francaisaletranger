@@ -68,7 +68,7 @@
     </b-row>
     <b-row align-v="center">
       <p style="padding: 20px;">
-        Depuis le début de la crise du Covid-19, des milliers de Français se retrouvent bloqués à l’étranger et doivent
+        Depuis le début de la crise du COVID-19, des milliers de Français se retrouvent bloqués à l’étranger et doivent
         faire face à des problématiques multiples : hébergement, barrière linguistique, réapprovisionnement, etc. Pour
         répondre à ces enjeux, la solidarité s’organise à travers le monde afin de trouver des solutions sur place en
         s’appuyant sur le réseau dense des Français résidant à l'étranger. En mettant en contact les concitoyens à

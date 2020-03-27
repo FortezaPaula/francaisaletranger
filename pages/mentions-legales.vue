@@ -5,7 +5,7 @@
       <p>
         Ce service est mis à disposition par le Ministère de l’Europe et des Affaires étrangères ; il vise à mettre en
         relation des Françaises et Français situés hors des frontières afin qu’ils puissent s’entraider dans le contexte
-        de crise sanitaire liée au covid-19.
+        de crise sanitaire liée au COVID-19.
       </p>
       <br>
       <h5>Editeur</h5>

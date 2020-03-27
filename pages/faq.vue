@@ -2,7 +2,7 @@
   <b-container class="faq">
     <div class="cadre">
       <BackToHome />
-      <h2>FAQ : Comment réagir face à la crise du Covid-19&nbsp;?</h2>
+      <h2>FAQ : Comment réagir face à la crise du COVID-19&nbsp;?</h2>
       <h3 class="subtitle">
         Qu’est-ce que le COVID-19 et quels en sont les symptômes principaux&nbsp;?
       </h3>

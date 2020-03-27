@@ -8,7 +8,7 @@
       <nuxt-link to="/">{{ $t('app-title') }}</nuxt-link>
       <br />
       <h5>
-        Plateforme d'entraide contre l'épidémie du Covid-19
+        Plateforme d'entraide contre l'épidémie du COVID-19
       </h5>
     </div>
   </div>

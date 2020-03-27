@@ -7,7 +7,7 @@
       </h3>
       <p>
         La plateforme solidarite-fde.beta.gouv.fr est une initiative visant à renforcer les liens de solidarité pour les
-        Français à l’étranger. En réaction à la crise du Covid-19, les gouvernements ont pris des mesures fortes à travers
+        Français à l’étranger. En réaction à la crise du COVID-19, les gouvernements ont pris des mesures fortes à travers
         le monde pour ralentir la propagation du virus. Des milliers de Français se retrouvent sur le court terme sans
         possibilité de retour sur le territoire national et doivent faire face à de nombreux obstacles sur place pour se
         loger, se réapprovisionner ou avoir de l’information. En mettant en contact les concitoyens à proximité, le site

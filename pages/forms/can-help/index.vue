@@ -3,7 +3,7 @@
     <BackToHome/>
     <h2>{{ $t('can-help') }}</h2>
     <p>
-      Face à la crise du Covid-19 et aux mesures d’urgence prises par les gouvernements à travers le monde, la
+      Face à la crise du COVID-19 et aux mesures d’urgence prises par les gouvernements à travers le monde, la
       solidarité
       entre ressortissants à l’étranger n’a jamais été aussi importante.
     </p>
