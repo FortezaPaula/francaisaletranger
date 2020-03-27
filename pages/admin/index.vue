@@ -1,26 +1,31 @@
 <template>
   <div>
-    <h1>Hello.</h1>
-    <h3>Les demandes d'aides qui n'ont pas encore été traitées</h3>
-    <table cellpadding="10px">
-      <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th colspan="2">
-          Nombre de personne pouvant aider
-        </th>
-      </tr>
-      <tr v-for="(needHelp) in needHelpList" :key="needHelp.id">
-        <td>{{ needHelp.nom }}</td>
-        <td>{{ needHelp.prenom }}</td>
-        <td>{{ needHelp.score}}</td>
-        <td>
-          <nuxt-link :to="'/admin/need-helps/'+needHelp.id">
-            Voir la demande
-          </nuxt-link>
-        </td>
-      </tr>
-    </table>
+    <h1>Demandes d'aide</h1>
+    <div class="cadre">
+      <h3>Demandes d'aides qui n'ont pas encore été traitées</h3>
+      <p>Il s'agit des demandes qui ont la meilleure correspondance avec des personnes qui proposent leur aide.
+        Toutes les demandes ne sont pas affichées.
+        Merci de revenir sur cette page une fois que ces demandes ont été traitées.</p>
+      <table cellpadding="10px">
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th colspan="2">
+            Nombre de personne pouvant aider
+          </th>
+        </tr>
+        <tr v-for="(needHelp) in needHelpList" :key="needHelp.id">
+          <td>{{ needHelp.nom }}</td>
+          <td>{{ needHelp.prenom }}</td>
+          <td>{{ needHelp.score}}</td>
+          <td>
+            <nuxt-link :to="'/admin/need-helps/'+needHelp.id">
+              Voir la demande
+            </nuxt-link>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 
