@@ -19,6 +19,8 @@
       <strong>engagez-vous seulement si vous êtes en bonne santé et avez moins de 60 ans</strong>.
       Vous pouvez vérifiez si vous ne faites pas partie des publics à risque sur le site du
       <a href="https://solidarites-sante.gouv.fr/actualites/actualites-du-ministere/article/coronavirus-qui-sont-les-personnes-fragiles" target="_blank">ministère de la santé</a>.
+
+      <p><nuxt-link to="/comment-ca-marche">En savoir plus sur le fonctionnement de la plateforme.</nuxt-link></p>
     </p>
     <Form
       class="form"
