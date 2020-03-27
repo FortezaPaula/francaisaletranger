@@ -9,6 +9,9 @@
     <div>
       {{ form.email }}
     </div>
+    <div>
+      {{ form.position.ville }}, {{ form.position.pays }}
+    </div>
     <h3 class="dashboard-subtitle">Mes choix</h3>
     <div>
       <b-form @submit="onSubmit">
