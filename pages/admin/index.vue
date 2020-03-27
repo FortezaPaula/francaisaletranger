@@ -6,12 +6,14 @@
       <p>Il s'agit des demandes qui ont la meilleure correspondance avec des personnes qui proposent leur aide.
         Toutes les demandes ne sont pas affichées.
         Merci de revenir sur cette page une fois que ces demandes ont été traitées.</p>
-      <table cellpadding="10px">
+      <div class="waiting" v-if="waiting">Veuillez patienter...</div>
+      <div v-if="!waiting && needHelpList.length === 0">Aucune correspondance trouvée.</div>
+      <table cellpadding="10px" v-if="!waiting" >
         <tr>
           <th>Nom</th>
           <th>Prénom</th>
           <th colspan="2">
-            Nombre de personne pouvant aider
+            Nombre de personnes pouvant aider
           </th>
         </tr>
         <tr v-for="(needHelp) in needHelpList" :key="needHelp.id">
@@ -39,7 +41,8 @@
     data () {
       return {
         needHelpList: [],
-        needHelpListScore: []
+        needHelpListScore: [],
+        waiting: true
       }
     },
 
@@ -51,7 +54,16 @@
         }
       }).then((response) => {
         this.needHelpList = response.data
+        this.waiting = false
       })
     }
   }
 </script>
+
+<style>
+  .waiting {
+    padding: 2em;
+    font-style: oblique;
+    max-width: 300px;
+  }
+</style>
