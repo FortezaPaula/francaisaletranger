@@ -1,7 +1,7 @@
 <template>
   <b-container class="comment-ca-marche">
-    <BackToHome />
     <div class="cadre">
+      <BackToHome />
       <h3 class="subtitle">
         Qu’est-ce que la plateforme solidarite-fde.beta.gouv.fr ?
       </h3>

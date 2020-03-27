@@ -12,6 +12,9 @@
       proche de votre localisation peut vous apporter l’aide dont vous avez besoin, nous vous mettrons en relation par
       e-mail pour que vous puissiez échanger et régler les détails logistiques.
     </p>
+
+    <p><nuxt-link to="/comment-ca-marche">En savoir plus sur le fonctionnement de la plateforme.</nuxt-link></p>
+
     <Form
       class="form"
       post-u-r-l="/api/need-help"
@@ -48,7 +51,6 @@
     }
 
     .form {
-      max-width: 500px;
       margin: 40px 0;
     }
   }
