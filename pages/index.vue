@@ -183,8 +183,8 @@
   .subtitle {
     font-weight: 600;
     font-size: 1.6rem;
-    color: #526488;
-    word-spacing: 5px;
+    color: #0048B3;
+    font-weight: normal;
     padding-top: 15px;
     padding-bottom: 15px;
   }

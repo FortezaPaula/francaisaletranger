@@ -1,12 +1,6 @@
 <template>
   <div class="cadre">
     <h2>Tableau de bord</h2>
-    <div ref="infoBanner" class="alert alert-info" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="deleteInfoBanner">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      {{ $t('info-banner-user-information') }}
-    </div>
     <div>
       <strong>Nom :</strong> {{ form.nom }}
     </div>
