@@ -105,7 +105,12 @@
         Bien reçu !!
       </div>
     </div>
-    <div class="alert alert-info droits"><b>Vous pourrez revenir sur votre demande à tout moment en utilisant cet appareil.</b> Les données seront supprimées automatiquement après la crise sanitaire liée au covid-19. Vous disposez d'un droit d'accès, de rectification, d’effacement et de portabilité de vos données ainsi que d’un droit d'opposition et d'un droit de limitation du traitement des données vous concernant.</div>
+    <div class="alert-info droits">
+      <b>Vous pourrez revenir sur votre demande à tout moment en utilisant cet appareil.</b>
+      Les données seront supprimées automatiquement après la crise sanitaire liée au COVID-19.
+      Vous disposez d'un droit d'accès, de rectification, d’effacement et de portabilité de vos données ainsi que
+      d’un droit d'opposition et d'un droit de limitation du traitement des données vous concernant.
+    </div>
   </b-form>
 </template>
 
@@ -301,15 +306,6 @@
 
   .cgu {
     margin-top: 2em;
-  }
-
-  .hebergement {
-    padding-left: 1.6em;
-  }
-
-  .alert-info.droits {
-    margin-top: 3em;
-    font-size: .8em;
   }
 
 </style>

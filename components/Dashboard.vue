@@ -69,7 +69,7 @@
         </div>
       </b-form>
     </div>
-    <div class="droits"><b>Vous pourrez revenir sur votre demande à tout moment en utilisant cet appareil.</b>
+    <div class="alert-info droits"><b>Vous pourrez revenir sur votre demande à tout moment en utilisant cet appareil.</b>
       Les données seront supprimées automatiquement après la crise sanitaire liée au COVID-19.
       Vous disposez d'un droit d'accès, de rectification, d’effacement et de portabilité de vos données ainsi que d’un
       droit d'opposition et d'un droit de limitation du traitement des données vous concernant.</div>  </div>
@@ -205,9 +205,6 @@
 <style lang="scss" scoped>
   .alert {
     display: none;
-  }
-  .hebergement {
-    padding-left: 1.6em;
   }
   .dashboard-subtitle {
     padding-top: 1em;

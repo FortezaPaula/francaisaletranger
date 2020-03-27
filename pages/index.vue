@@ -3,8 +3,10 @@
     <b-row class="help-buttons">
       <b-col md="6" sm="12" class="alert-info">
         <nuxt-link to="/forms/need-help">
-        <img src="~/static/femme.png" class="hero" alt="">
-        <h2 style="min-height: 70px;">Je suis Français à l’étranger<br />et j’ai besoin d’aide</h2>
+          <img src="~/static/femme.png" class="hero" alt="">
+          <h2 style="min-height: 70px;">
+            Je suis Français à l’étranger<br>et j’ai besoin d’aide
+          </h2>
         </nuxt-link>
         <br>
         <p class="info-help">
@@ -28,10 +30,12 @@
       </b-col>
       <b-col md="6" sm="12" class="alert-success">
         <nuxt-link to="/forms/can-help">
-        <img src="~/static/aide.png" class="hero" alt="">
-        <h2 style="min-height: 70px;">Je suis résident à l’étranger<br />et je peux proposer mon aide</h2>
+          <img src="~/static/aide.png" class="hero" alt="">
+          <h2 style="min-height: 70px;">
+            Je suis résident à l’étranger<br>et je peux proposer mon aide
+          </h2>
         </nuxt-link>
-        <br />
+        <br>
         <p class="info-help">
           Vous pouvez apporter des conseils ou une solution d’hébergement à un ressortissant à proximité de chez vous ?
           Vous pouvez proposer de l’aide pour faire des courses dans votre quartier ou pour un réapprovisionnement en
@@ -217,5 +221,14 @@
     padding: 50px;
     margin: auto auto 70px;
     border: 1px solid #eaf1f9;
+  }
+
+  .hebergement {
+    padding-left: 1.6em;
+  }
+
+  .alert-info.droits {
+    margin-top: 3em;
+    font-size: .8em;
   }
 </style>
