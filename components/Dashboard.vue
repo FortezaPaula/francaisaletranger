@@ -2,12 +2,6 @@
   <div class="cadre">
     <BackToHome />
     <h2>Tableau de bord</h2>
-    <div ref="infoBanner" class="alert alert-info" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="deleteInfoBanner">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      {{ $t('info-banner-user-information') }}
-    </div>
     <h3 class="dashboard-subtitle">Mes informations personnelles</h3>
     <div>
       {{ form.prenom }} {{ form.nom }}
@@ -151,15 +145,8 @@
       }
     },
 
-    mounted () {
-      this.$refs.infoBanner.style.display = 'block'
-    },
-
     methods: {
       availableHelpers,
-      deleteInfoBanner () {
-        this.$refs.infoBanner.style.display = 'none'
-      },
       onSubmit (event) {
         event.preventDefault()
 
@@ -223,6 +210,6 @@
     padding-left: 1.6em;
   }
   .dashboard-subtitle {
-    padding-top: 2em;
+    padding-top: 1em;
   }
 </style>
