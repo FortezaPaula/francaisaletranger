@@ -1,6 +1,5 @@
 <template>
   <div class="form-can-help">
-    <BackToHome />
     <Dashboard
       server-middleware-url="/api/can-help"
       type-form="can"
@@ -13,11 +12,10 @@
 
 <script>
   import Dashboard from '@/components/Dashboard'
-  import BackToHome from '@/components/BackToHome'
 
   export default {
 
-    components: { BackToHome, Dashboard }
+    components: { Dashboard }
   }
 </script>
 

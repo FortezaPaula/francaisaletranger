@@ -1,15 +1,21 @@
 <template>
   <div class="cadre">
+    <BackToHome />
     <h2>Tableau de bord</h2>
+    <div ref="infoBanner" class="alert alert-info" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="deleteInfoBanner">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{ $t('info-banner-user-information') }}
+    </div>
+    <h3 class="dashboard-subtitle">Mes informations personnelles</h3>
     <div>
-      <strong>Nom :</strong> {{ form.nom }}
+      {{ form.prenom }} {{ form.nom }}
     </div>
     <div>
-      <strong>Prénom :</strong> {{ form.prenom }}
+      {{ form.email }}
     </div>
-    <div>
-      <strong>Email :</strong> {{ form.email }}
-    </div>
+    <h3 class="dashboard-subtitle">Mes choix</h3>
     <div>
       <b-form @submit="onSubmit">
         <b-form-group :label=labelCheckBoxHelp>
@@ -20,8 +26,7 @@
             text-field="name"
             stacked
           />
-          <div v-if="form.helpFor.selected.includes('hebergement')">
-            <br>
+          <div v-if="form.helpFor.selected.includes('hebergement')" class="hebergement">
             Logement pour :
             <b-form-select
               :options="[
@@ -53,14 +58,13 @@
               @click="deleteHelper()"
               block
               class="mt-3"
-              variant="primary">
+              variant="danger">
               Supprimer définitivement
             </b-button>
             <b-button
               @click="hideModal()"
               block
-              class="mt-2"
-              variant="danger">
+              class="mt-2">
               Annuler
             </b-button>
           </b-modal>
@@ -71,15 +75,20 @@
         </div>
       </b-form>
     </div>
-  </div>
+    <div class="droits"><b>Vous pourrez revenir sur votre demande à tout moment en utilisant cet appareil.</b>
+      Les données seront supprimées automatiquement après la crise sanitaire liée au COVID-19.
+      Vous disposez d'un droit d'accès, de rectification, d’effacement et de portabilité de vos données ainsi que d’un
+      droit d'opposition et d'un droit de limitation du traitement des données vous concernant.</div>  </div>
 </template>
 
 <script>
   import axios from 'axios'
   import availableHelpers from '../helpers/availableHelpers'
+  import BackToHome from '@/components/BackToHome'
 
   export default {
     name: 'Dashboard',
+    components: { BackToHome },
     props: {
       serverMiddlewareUrl: {
         type: String,
@@ -209,5 +218,11 @@
 <style lang="scss" scoped>
   .alert {
     display: none;
+  }
+  .hebergement {
+    padding-left: 1.6em;
+  }
+  .dashboard-subtitle {
+    padding-top: 2em;
   }
 </style>

@@ -61,8 +61,7 @@
         text-field="name"
         stacked
       >
-        <div v-if="form.helpFor.selected.includes('hebergement')">
-          <br>
+        <div v-if="form.helpFor.selected.includes('hebergement')" class="hebergement">
           Logement pour :
           <b-form-select
             :options="[
@@ -302,6 +301,10 @@
 
   .cgu {
     margin-top: 2em;
+  }
+
+  .hebergement {
+    padding-left: 1.6em;
   }
 
   .alert-info.droits {
