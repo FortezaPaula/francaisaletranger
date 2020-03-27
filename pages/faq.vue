@@ -1,10 +1,8 @@
 <template>
   <b-container class="faq">
-    <BackToHome />
     <div class="cadre">
-      <h2>
-        FAQ - Français à l’étranger : Comment réagir face à la crise du Covid-19&nbsp;?
-      </h2>
+      <BackToHome />
+      <h2>FAQ : Comment réagir face à la crise du Covid-19&nbsp;?</h2>
       <h3 class="subtitle">
         Qu’est-ce que le COVID-19 et quels en sont les symptômes principaux&nbsp;?
       </h3>
