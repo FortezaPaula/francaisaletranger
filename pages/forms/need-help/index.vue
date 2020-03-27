@@ -48,7 +48,6 @@
     }
 
     .form {
-      max-width: 500px;
       margin: 40px 0;
     }
   }

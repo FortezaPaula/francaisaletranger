@@ -9,7 +9,7 @@
         :state="validateState('nom')"
       />
       <b-form-invalid-feedback>
-        Ce champ est obligatoire et doit faire au moins 2 caractères.
+        Saisissez votre nom (2 caractères minimum).
       </b-form-invalid-feedback>
     </b-form-group>
     <b-form-group label="Votre prénom" class="personal-data-input">
@@ -21,7 +21,7 @@
         :state="validateState('prenom')"
       />
       <b-form-invalid-feedback>
-        Ce champ est obligatoire et doit faire au moins 2 caractères.
+        Saisissez votre prénom (2 caractères minimum).
       </b-form-invalid-feedback>
     </b-form-group>
     <b-form-group label="Votre email" class="personal-data-input">
@@ -32,14 +32,16 @@
         name="email"
         :state="validateState('email')"
       />
+      <b-form-text>Utilisé pour vous mettre en relation.</b-form-text>
       <b-form-invalid-feedback>
-        Ce n'est pas un email valide.
+        Saisissez un email valide.
       </b-form-invalid-feedback>
     </b-form-group>
     <b-form-group label="Votre localisation actuelle" class="personal-data-input">
       <Places type="city" @change="setCity($event.suggestion)"/>
+      <b-form-text>Utilisé pour trouver des personnes proches de vous.</b-form-text>
       <b-form-invalid-feedback :state="validatePosition()">
-        Merci de vous localiser
+        Saisissez votre ville et de choisissez une localisation dans le menu déroulant.
       </b-form-invalid-feedback>
     </b-form-group>
     <div v-if="localised">
@@ -74,7 +76,7 @@
             style="width: 30%"></b-form-select>
         </div>
         <b-form-invalid-feedback :state="validateStateHelpFor('selected')">
-          Au moins un besoin doit être coché
+          Sélectionnez un ou plusieurs besoins.
         </b-form-invalid-feedback>
       </b-form-checkbox-group>
     </b-form-group>
@@ -89,8 +91,10 @@
       >
         J'ai pris connaissance et j'accepte les <a href="/conditions-d-utilisation" target="_blank">CGU</a>.
       </b-form-checkbox>
+      <b-form-text>Il est notamment important de suivre les recommandations sanitaires à tout moment.</b-form-text>
+
       <b-form-invalid-feedback :state="validateState('cgu')">
-        Veuillez lire et accepter les conditions générales d'utilisation s'il vous plait.
+        Veuillez lire et accepter les conditions générales d'utilisation.
       </b-form-invalid-feedback>
     </b-form-group>
     <br>
@@ -102,6 +106,9 @@
         Bien reçu !!
       </div>
     </div>
+
+    <div class="alert alert-info"><b>Vous pourrez revenir sur votre demande à tout moment en utilisant cet appareil.</b> Vous disposez d'un droit d'accès, de rectification, d’effacement et de portabilité de vos données ainsi que d’un droit d'opposition et d'un droit de limitation du traitement des données vous concernant.</div>
+
   </b-form>
 </template>
 
@@ -300,6 +307,11 @@
 
   .cgu {
     margin-top: 2em;
+  }
+
+  .alert-info {
+    margin-top: 3em;
+    font-size: .8em;
   }
 
 </style>
