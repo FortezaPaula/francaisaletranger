@@ -107,7 +107,7 @@
       </div>
     </div>
 
-    <div class="alert alert-info"><b>Vous pourrez revenir sur votre demande à tout moment en utilisant cet appareil.</b> Vous disposez d'un droit d'accès, de rectification, d’effacement et de portabilité de vos données ainsi que d’un droit d'opposition et d'un droit de limitation du traitement des données vous concernant.</div>
+    <div class="alert alert-info droits"><b>Vous pourrez revenir sur votre demande à tout moment en utilisant cet appareil.</b> Vous disposez d'un droit d'accès, de rectification, d’effacement et de portabilité de vos données ainsi que d’un droit d'opposition et d'un droit de limitation du traitement des données vous concernant.</div>
 
   </b-form>
 </template>
@@ -306,7 +306,7 @@
     margin-top: 2em;
   }
 
-  .alert-info {
+  .alert-info.droits {
     margin-top: 3em;
     font-size: .8em;
   }
