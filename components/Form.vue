@@ -282,9 +282,6 @@
 </script>
 
 <style lang="scss">
-  legend {
-    font-weight: bold;
-  }
 
   .good-send {
     color: green;
