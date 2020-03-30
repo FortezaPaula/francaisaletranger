@@ -75,7 +75,7 @@ export default {
     [
       'nuxt-env',
       {
-        keys: ['VUE_APP_API_URL']
+        keys: ['VUE_APP_API_URL', 'ALGOLIA_APP_ID', 'ALGOLIA_API_KEY']
       }
     ]
   ],
