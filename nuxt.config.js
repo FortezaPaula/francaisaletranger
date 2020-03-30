@@ -4,7 +4,7 @@ import cookieparser from 'cookie-parser'
 require('dotenv').config()
 
 export default {
-  mode: 'spa',
+  mode: 'universal',
 
   modern: true,
   /*
