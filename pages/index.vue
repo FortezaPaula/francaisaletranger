@@ -10,9 +10,8 @@
         </nuxt-link>
         <br>
         <p class="info-help">
-          Vous n’avez pas encore de solution de retour en France et vous cherchez un hébergement ? Vous avez besoin de
-          conseils pour vos démarches pratiques ? En confinement, vous avez besoin d’aide pour vous réapprovisionner en
-          eau, nourriture, médicaments ?
+          Vous avez besoin de conseils pour vos démarches pratiques de la part de vos compatriotes&nbsp;?
+          En confinement, vous avez besoin d’aide pour vous réapprovisionner en eau, nourriture, médicaments&nbsp;?
         </p>
         <br>
         <nuxt-link to="/forms/need-help">
@@ -68,11 +67,11 @@
     </b-row>
     <b-row align-v="center">
       <p style="padding: 20px;">
-        Depuis le début de la crise du COVID-19, des milliers de Français se retrouvent bloqués à l’étranger et doivent
-        faire face à des problématiques multiples : hébergement, barrière linguistique, réapprovisionnement, etc. Pour
-        répondre à ces enjeux, la solidarité s’organise à travers le monde afin de trouver des solutions sur place en
-        s’appuyant sur le réseau dense des Français résidant à l'étranger. En mettant en contact les concitoyens à
-        proximité, le site solidarite-fde.beta.gouv.fr permet de favoriser cette entraide dans tous les pays concernés.
+        Depuis le début de la crise du COVID-19, des milliers de Français doivent faire face à des problématiques multiples
+        liées au confinement décrété dans de nombreux pays. Pour répondre à ces enjeux, la solidarité s’organise à travers
+        le monde afin de trouver des solutions sur place en s’appuyant sur le réseau dense des Français résidant à l'étranger.
+        En mettant en contact les concitoyens à proximité, le site solidarite-fde.beta.gouv.fr permet de favoriser
+        cette entraide dans tous les pays concernés.
       </p>
     </b-row>
     <b-row>
