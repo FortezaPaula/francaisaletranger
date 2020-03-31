@@ -20,11 +20,11 @@
       <br>
       <h5>Hébergeur</h5>
       <p>
-        Salesforce.com France SAS
+        Scalingo SAS
         <br>
-        3 Avenue Octave Gréard - 75007 Paris
+        15 avenue du Rhin
         <br>
-        Tél: +33 1 72 10 94 00
+        67100 Strasbourg France
       </p>
     </div>
   </b-container>
