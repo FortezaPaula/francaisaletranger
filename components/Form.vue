@@ -260,7 +260,7 @@
           },
           nombre_hebergement: this.form.helpFor.hebergement_number,
           approvisionnement: this.form.helpFor.selected.includes('approvisionnement'),
-          garde_enfants: this.form.helpFor.selected.includes('enfants'),
+          conseils: this.form.helpFor.selected.includes('conseils'),
           autres: this.form.helpFor.selected.includes('autres')
         }
 
