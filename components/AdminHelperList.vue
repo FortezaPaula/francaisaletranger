@@ -29,6 +29,9 @@
       <template slot="approvisionnement" slot-scope="props">
         {{ props.cell_value ? '🍽' : '' }}
       </template>
+      <template slot="conseils" slot-scope="props">
+        {{ props.cell_value ? '🗣' : '' }}
+      </template>
       <template slot="autres" slot-scope="props">
         {{ props.cell_value ? '🤝' : '' }}
       </template>
@@ -46,17 +49,6 @@
       return {
         rows: [],
         columns: [
-          {
-            label: '#',
-            name: 'id',
-            filter: {
-              type: 'simple'
-            },
-            sort: true,
-            column_text_alignment: 'text-right',
-            row_text_alignment: 'text-right',
-            uniqueId: true
-          },
           {
             label: 'Nom',
             name: 'nom',
@@ -100,6 +92,16 @@
           {
             label: '🍽',
             name: 'approvisionnement',
+            filter: {
+              type: 'simple'
+            },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
+          },
+          {
+            label: '🗣',
+            name: 'conseils',
             filter: {
               type: 'simple'
             },
@@ -169,9 +171,6 @@
           const conditions = []
           for (let index = 0; index < this.queryParams.filters.length; index++) {
             const filter = this.queryParams.filters[index]
-            if (['id'].includes(filter.name)) {
-              conditions.push({ id: filter.text })
-            }
             if (['nom', 'prenom', 'email'].includes(filter.name)) {
               const condition = {}
               condition[filter.name] = { ilike: `%${filter.text}%` }
@@ -182,7 +181,7 @@
               condition[filter.name] = { gte: filter.text }
               conditions.push(condition)
             }
-            if (['approvisionnement', 'autres'].includes(filter.name)) {
+            if (['approvisionnement', 'conseils', 'autres'].includes(filter.name)) {
               const condition = {}
               condition[filter.name] = true
               conditions.push(condition)
