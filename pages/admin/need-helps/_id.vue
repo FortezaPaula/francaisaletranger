@@ -23,7 +23,7 @@
             <th>Prénom</th>
             <th>Nom</th>
             <th>Distance (km)</th>
-            <th>Nb critères exacts</th>
+            <th>Critères ok</th>
           </tr>
           <tr
             v-for="(helper, index) in helpers"
@@ -34,7 +34,7 @@
             <td>{{ helper.prenom }}</td>
             <td>{{ helper.nom }}</td>
             <td>{{ Math.round(helper.distanceInMeters) / 1000 }}</td>
-            <td>{{ helper.scoring }}</td>
+            <td>{{ helper.criteresMatching.score }} / {{helper.criteresMatching.total}}</td>
             <td>
               <b-button @click="sendMailMatching(needer.id, helper.id)" style="cursor: default">
                 Envoyer mail
@@ -69,6 +69,7 @@
         helpers: []
       }
     },
+
     mounted () {
       this.showNeederLoader = true
       this.fetchNeeder()
@@ -91,14 +92,11 @@
                 access_token: accessToken()
               }
             }).then((response) => {
-              this.helpers = response.data.sort(function (a, b) {
-                return a.distanceInMeters - b.distanceInMeters && b.scoring - a.scoring
-              })
+              this.helpers = response.data
             })
           }
-        }).catch(function (error) {
-          self.showNeederLoader = false
-          console.log(error)
+        }).catch(() => {
+          this.showNeederLoader = false
         })
       },
       sendMailMatching (neederId, helperId) {

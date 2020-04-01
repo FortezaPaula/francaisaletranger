@@ -29,6 +29,9 @@
       <template slot="approvisionnement" slot-scope="props">
         {{ props.cell_value ? '🍽' : '' }}
       </template>
+      <template slot="conseils" slot-scope="props">
+        {{ props.cell_value ? '🗣' : '' }}
+      </template>
       <template slot="autres" slot-scope="props">
         {{ props.cell_value ? '🤝' : '' }}
       </template>
@@ -100,6 +103,16 @@
           {
             label: '🍽',
             name: 'approvisionnement',
+            filter: {
+              type: 'simple'
+            },
+            column_text_alignment: 'text-left',
+            row_text_alignment: 'text-left',
+            sort: true
+          },
+          {
+            label: '🗣',
+            name: 'conseils',
             filter: {
               type: 'simple'
             },
@@ -182,7 +195,7 @@
               condition[filter.name] = { gte: filter.text }
               conditions.push(condition)
             }
-            if (['approvisionnement', 'autres'].includes(filter.name)) {
+            if (['approvisionnement', 'conseils', 'autres'].includes(filter.name)) {
               const condition = {}
               condition[filter.name] = true
               conditions.push(condition)
