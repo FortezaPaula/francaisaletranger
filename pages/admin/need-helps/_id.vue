@@ -107,6 +107,7 @@
           needHelp_id: neederId,
           helper_id: helperId
         }).then(() => {
+          this.needer.helper_id = helperId
           alert('Un email vient d\'être envoyé pour la mise en relation')
         })
       }
