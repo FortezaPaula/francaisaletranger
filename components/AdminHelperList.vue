@@ -50,17 +50,6 @@
         rows: [],
         columns: [
           {
-            label: '#',
-            name: 'id',
-            filter: {
-              type: 'simple'
-            },
-            sort: true,
-            column_text_alignment: 'text-right',
-            row_text_alignment: 'text-right',
-            uniqueId: true
-          },
-          {
             label: 'Nom',
             name: 'nom',
             filter: {
@@ -182,9 +171,6 @@
           const conditions = []
           for (let index = 0; index < this.queryParams.filters.length; index++) {
             const filter = this.queryParams.filters[index]
-            if (['id'].includes(filter.name)) {
-              conditions.push({ id: filter.text })
-            }
             if (['nom', 'prenom', 'email'].includes(filter.name)) {
               const condition = {}
               condition[filter.name] = { ilike: `%${filter.text}%` }
