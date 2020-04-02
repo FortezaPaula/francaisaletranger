@@ -1,3 +1,5 @@
+> :warning: La communaute beta.gouv.fr a été sollicitée pour aider les Français bloqués à l’étranger à la suite de la crise du covid-19, et a contribué à un effort collectif pour développer un service d’entraide et de mise en relation entre besoins et offres d’aide. Le Ministère de l’Europe et des Affaires Etrangères a décidé de ne pas donner suite à cette initiative. Le code développé ici est en open source et fourni tel quel.
+
 # francaisaletranger
 
 > Plateforme de mise en relation des français bloqués à l&#39;étranger
