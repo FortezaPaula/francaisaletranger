@@ -14,18 +14,21 @@
           En confinement, vous avez besoin d’aide pour vous réapprovisionner en eau, nourriture, médicaments&nbsp;?
         </p>
         <br>
-        <nuxt-link to="/forms/need-help">
-          <b-button variant="primary">
-            {{ $t('need-help') }}
-          </b-button>
-        </nuxt-link>
-        <nuxt-link v-if="needHelp" to="/need-help/dashboard">
-          <br>
-          <br>
-          <div class="already-help">
-            {{ $t('need-help-already-exists') }}
-          </div>
-        </nuxt-link>
+        <br v-if="!sameHeightInfoHelp">
+        <div class="buttons-help">
+          <nuxt-link to="/forms/need-help">
+            <b-button variant="primary">
+              {{ $t('need-help') }}
+            </b-button>
+          </nuxt-link>
+          <nuxt-link v-if="needHelp" to="/need-help/dashboard">
+            <br>
+            <br>
+            <div class="already-help">
+              {{ $t('need-help-already-exists') }}
+            </div>
+          </nuxt-link>
+        </div>
       </b-col>
       <b-col md="6" sm="12" class="alert-success">
         <nuxt-link to="/forms/can-help">
@@ -41,18 +44,20 @@
           produits de première nécessité ?
         </p>
         <br>
-        <nuxt-link to="/forms/can-help">
-          <b-button variant="primary">
-            {{ $t('can-help') }}
-          </b-button>
-        </nuxt-link>
-        <nuxt-link v-if="canHelp" to="/can-help/dashboard">
-          <br>
-          <br>
-          <div class="already-help">
-            {{ $t('can-help-update') }}
-          </div>
-        </nuxt-link>
+        <div class="buttons-help">
+          <nuxt-link to="/forms/can-help">
+            <b-button variant="primary">
+              {{ $t('can-help') }}
+            </b-button>
+          </nuxt-link>
+          <nuxt-link v-if="canHelp" to="/can-help/dashboard">
+            <br>
+            <br>
+            <div class="already-help">
+              {{ $t('can-help-update') }}
+            </div>
+          </nuxt-link>
+        </div>
       </b-col>
     </b-row>
     <br>
@@ -67,9 +72,12 @@
     </b-row>
     <b-row align-v="center">
       <p style="padding: 20px;">
-        Depuis le début de la crise du COVID-19, des milliers de Français doivent faire face à des problématiques multiples
-        liées au confinement décrété dans de nombreux pays. Pour répondre à ces enjeux, la solidarité s’organise à travers
-        le monde afin de trouver des solutions sur place en s’appuyant sur le réseau dense des Français résidant à l'étranger.
+        Depuis le début de la crise du COVID-19, des milliers de Français doivent faire face à des problématiques
+        multiples
+        liées au confinement décrété dans de nombreux pays. Pour répondre à ces enjeux, la solidarité s’organise à
+        travers
+        le monde afin de trouver des solutions sur place en s’appuyant sur le réseau dense des Français résidant à
+        l'étranger.
         En mettant en contact les concitoyens à proximité, le site solidarite-fde.fr permet de favoriser
         cette entraide dans tous les pays concernés.
       </p>
@@ -86,7 +94,8 @@
         et dans notre
         <nuxt-link to="/faq">
           FAQ
-        </nuxt-link>.
+        </nuxt-link>
+        .
         <br>
         <br>
       </b-col>
@@ -99,11 +108,16 @@
     data () {
       return {
         canHelp: false,
-        needHelp: false
+        needHelp: false,
+        sameHeightInfoHelp: false
       }
     },
 
     mounted () {
+      window.addEventListener('resize', () => {
+        this.sameHeightInfoHelp = this.$el.querySelector('.alert-info .info-help').offsetHeight === this.$el.querySelector('.alert-success .info-help').offsetHeight
+      })
+
       if (localStorage.myInfos_can) {
         this.canHelp = true
       }
@@ -133,13 +147,19 @@
     .alert-info {
       color: white;
       background-color: $blue;
-      a { text-decoration: none; }
+
+      a {
+        text-decoration: none;
+      }
     }
 
     .alert-success {
       color: white;
       background-color: $purple;
-      a { text-decoration: none; }
+
+      a {
+        text-decoration: none;
+      }
 
       button:hover {
         color: $purple;
