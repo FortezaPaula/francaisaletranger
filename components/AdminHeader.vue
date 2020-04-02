@@ -3,7 +3,7 @@
     <div class="container admin-header__container clearfix">
       <div class="admin-header__logo">
         <nuxt-link to="/admin" class="admin-header__logo-link">
-          <img src="~/static/logo.jpg" alt="République Française" class="admin-header__logo-image">
+          <img src="~/static/logo.jpg" alt="Logo français de l'étranger" class="admin-header__logo-image">
         </nuxt-link>
         <div class="admin-header__baseline">
           {{ $t('app-title') }}

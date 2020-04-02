@@ -3,7 +3,7 @@
     <b-row class="help-buttons">
       <b-col md="6" sm="12" class="alert-info">
         <nuxt-link to="/forms/need-help">
-          <img src="~/static/femme.png" class="hero" alt="">
+          <img src="~/static/femme.png" class="hero" alt="Je suis à l'étranger">
           <h2 style="min-height: 70px;">
             Je suis Français à l’étranger<br>et j’ai besoin d’aide
           </h2>
@@ -32,7 +32,7 @@
       </b-col>
       <b-col md="6" sm="12" class="alert-success">
         <nuxt-link to="/forms/can-help">
-          <img src="~/static/aide.png" class="hero" alt="">
+          <img src="~/static/aide.png" class="hero" alt="Je peux aider">
           <h2 style="min-height: 70px;">
             Je suis résident à l’étranger<br>et je peux proposer mon aide
           </h2>

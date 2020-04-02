@@ -1,8 +1,8 @@
 <template>
   <div class="header">
     <nuxt-link to="/">
-      <img src="~/static/logo.jpg" class="logo" alt="Logo République Française">
-      <img src="~/static/picto.jpg" class="logo-mobile">
+      <img src="~/static/logo.jpg" class="logo" alt="Logo français de l'étranger">
+      <img src="~/static/picto.jpg" class="logo-mobile" alt="Mini logo français de l'étranger">
     </nuxt-link>
     <div class="title">
       <nuxt-link to="/">{{ $t('app-title') }}</nuxt-link>
