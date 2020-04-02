@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <b-row align-v="center">
-      <b-col>
+      <b-col cols="2">
         <a
           href="https://github.com/octo-webf/francaisaletranger"
           target="_blank"
@@ -29,7 +29,7 @@
           Conditions d'utilisation
         </nuxt-link>
       </b-col>
-      <b-col>
+      <b-col cols="2">
         <nuxt-link to="/faq">
           FAQ
         </nuxt-link>
@@ -64,6 +64,10 @@
     display: flex;
     align-items: center;
     width: 100%;
+
+    .col, .col-1, .col-2 {
+      padding: 0;
+    }
 
   }
 
