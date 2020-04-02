@@ -157,6 +157,6 @@ export default {
     Sitemap: 'https://www.solidarite-fde.fr/sitemap.xml'
   },
   sitemap: {
-    exclude: ['/admin/*', '/fr/admin/*', '/api', '/login', '/fr/login/*']
+    exclude: ['/admin', '/admin/*', '/fr/admin/*', '/fr/admin', '/api', '/login', '/fr/login']
   }
 }
