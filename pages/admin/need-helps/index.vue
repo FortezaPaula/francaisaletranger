@@ -222,7 +222,6 @@
           self.showLoader = false
         }).catch(function (error) {
           self.showLoader = false
-          console.log(error)
         })
       }
     }

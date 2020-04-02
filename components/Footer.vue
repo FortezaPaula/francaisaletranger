@@ -3,7 +3,7 @@
     <b-row align-v="center">
       <b-col cols="2">
         <a
-          href="https://github.com/octo-webf/francaisaletranger"
+          href="https://github.com/betagouv/francaisaletranger"
           target="_blank"
         >
           <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
