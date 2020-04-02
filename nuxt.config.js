@@ -153,7 +153,8 @@ export default {
   },
   robots: {
     UserAgent: '*',
-    Disallow: ['/admin', '/api', '/login']
+    Disallow: ['/admin', '/api', '/login'],
+    Sitemap: 'https://www.solidarite-fde.fr/sitemap.xml'
   },
   sitemap: {
     exclude: ['/admin/*', '/fr/admin/*', '/api', '/login', '/fr/login/*']
