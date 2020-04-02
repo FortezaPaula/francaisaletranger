@@ -77,7 +77,9 @@ export default {
       {
         keys: ['VUE_APP_API_URL', 'ALGOLIA_APP_ID', 'ALGOLIA_API_KEY']
       }
-    ]
+    ],
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap'
   ],
   /*
    ** Build configuration
@@ -148,5 +150,12 @@ export default {
       background_color: '#FFF',
       theme_color: '#88cedb'
     }
+  },
+  robots: {
+    UserAgent: '*',
+    Disallow: ['/admin', '/api', '/login']
+  },
+  sitemap: {
+    exclude: ['/admin/*', '/fr/admin/*', '/api', '/login', '/fr/login/*']
   }
 }

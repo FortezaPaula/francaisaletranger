@@ -1,10 +1,12 @@
 <template>
   <div class="header">
     <nuxt-link to="/">
-      <img src="~/static/logo.jpg" class="logo" alt="Logo français de l'étranger">
-      <h5>
+      <h1>
+        <img src="~/static/logo.jpg" class="logo" alt="Solidarité des français de l'étranger">
+      </h1>
+      <h2>
         Plateforme d'entraide contre l'épidémie du COVID-19
-      </h5>
+      </h2>
     </nuxt-link>
   </div>
 </template>
@@ -32,6 +34,14 @@
   a {
     text-decoration: none;
     color: black;
+  }
+
+  h1, h2 {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 
   .logo {
