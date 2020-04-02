@@ -2,15 +2,10 @@
   <div class="header">
     <nuxt-link to="/">
       <img src="~/static/logo.jpg" class="logo" alt="Logo français de l'étranger">
-      <img src="~/static/picto.jpg" class="logo-mobile" alt="Mini logo français de l'étranger">
-    </nuxt-link>
-    <div class="title">
-      <nuxt-link to="/">{{ $t('app-title') }}</nuxt-link>
-      <br/>
       <h5>
         Plateforme d'entraide contre l'épidémie du COVID-19
       </h5>
-    </div>
+    </nuxt-link>
   </div>
 </template>
 
@@ -30,15 +25,8 @@
 
 <style lang="scss" scoped>
   .header {
-    display: flex;
-    align-items: center;
+    text-align: center;
     height: $header-height;
-  }
-
-  .title {
-    font-size: 1.5rem;
-    margin-left: 10px;
-    font-weight: bold;
   }
 
   a {
@@ -46,27 +34,9 @@
     color: black;
   }
 
-  @media all and (max-width: 576px) {
-    .logo-mobile {
-      width: 100px;
-      margin: auto;
-      display: block;
-    }
-
-    .logo {
-      display: none
-    }
-  }
-
-  @media all and (min-width: 577px) {
-    .logo {
-      width: 170px;
-      margin: auto;
-      display: block;
-    }
-
-    .logo-mobile {
-      display: none;
-    }
+  .logo {
+    height: calc(#{$header-height} - 2.5rem);
+    margin: auto;
+    display: block;
   }
 </style>
