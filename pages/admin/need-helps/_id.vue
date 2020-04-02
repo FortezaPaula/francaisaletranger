@@ -10,7 +10,10 @@
           <AdminForm :needer="needer"/>
         </div>
       </div>
-      <div class="col-md-8" v-if="needer.helper_id === null">
+      <div class="col-md-8">
+        <h3 v-if="needer.helper_id !== null" class="text-danger">
+          Cette demande a déjà eu un aidant d'affecté.
+        </h3>
         <div>
           Nombre d'aidants potentiels :
           <span style="font-weight: bold; font-size:1.2rem" class="text-success">{{ helpers.length }}</span>
@@ -34,10 +37,15 @@
             <td>{{ helper.prenom }}</td>
             <td>{{ helper.nom }}</td>
             <td>{{ Math.round(helper.distanceInMeters) / 1000 }}</td>
-            <td>{{ helper.criteresMatching.score }} / {{helper.criteresMatching.total}}</td>
+            <td>{{ helper.criteresMatching.score }} / {{ helper.criteresMatching.total }}</td>
             <td>
-              <b-button @click="sendMailMatching(needer.id, helper.id)" style="cursor: default">
-                Envoyer mail
+              <b-button
+                :disabled="needer.helper_id === helper.id"
+                style="cursor: default"
+                @click="sendMailMatching(needer.id, helper.id)"
+                :class="{'btn-success' : (needer.helper_id === helper.id)}"
+              >
+                {{needer.helper_id === helper.id ? 'Déjà envoyé' : 'Envoyer mail'}}
               </b-button>
             </td>
             <td v-if="index === 0">
@@ -45,9 +53,6 @@
             </td>
           </tr>
         </table>
-      </div>
-      <div class="col-md-8" v-else>
-        <h3 class="text-danger">Cette demande d'aide a déjà eu un aidant d'affecté.</h3>
       </div>
     </div>
   </div>
@@ -84,21 +89,20 @@
           this.needer = response.data
           this.showNeederLoader = false
 
-          if (this.needer.helper_id === null) {
-            axios.get('/api/matching/', {
-              params: {
-                id: this.$route.params.id,
-                maxDistance: this.maxDistance,
-                access_token: accessToken()
-              }
-            }).then((response) => {
-              this.helpers = response.data
-            })
-          }
+          axios.get('/api/matching/', {
+            params: {
+              id: this.$route.params.id,
+              maxDistance: this.maxDistance,
+              access_token: accessToken()
+            }
+          }).then((response) => {
+            this.helpers = response.data
+          })
         }).catch(() => {
           this.showNeederLoader = false
         })
       },
+
       sendMailMatching (neederId, helperId) {
         axios.post('/api/send-matching/', {
           access_token: accessToken(),

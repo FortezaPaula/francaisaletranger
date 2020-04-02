@@ -70,9 +70,6 @@
     display: inline-block;
     text-decoration: none;
     color: black;
-    &:hover {
-      background-color: white;
-    }
   }
   .admin-header__logo-image {
     height: 50px;
