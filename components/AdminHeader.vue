@@ -75,10 +75,13 @@
     }
   }
   .admin-header__logo-image {
-    width: 6.25rem;
+    height: 50px;
+    margin-top: 20px;
   }
   .admin-header__baseline {
     display: inline-block;
     margin: 0 .5rem;
+    font-weight: bold;
+    font-size: 1.3rem;
   }
 </style>

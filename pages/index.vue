@@ -132,8 +132,11 @@
   .home-page {
     width: 100%;
     max-width: 100%;
-    margin-top: 20px;
     font-size: 1.1rem;
+
+    @media all and (max-width: 767px){
+      margin-top: 20px;
+    }
 
     h2 {
       margin-top: 0px;

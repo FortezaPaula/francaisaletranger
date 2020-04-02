@@ -2,11 +2,11 @@
   <div class="header">
     <nuxt-link to="/">
       <img src="~/static/logo.jpg" class="logo" alt="Logo République Française">
-      <img src="~/static/marianne_simple_simple.svg" class="logo-mobile">
+      <img src="~/static/picto.jpg" class="logo-mobile">
     </nuxt-link>
     <div class="title">
       <nuxt-link to="/">{{ $t('app-title') }}</nuxt-link>
-      <br />
+      <br/>
       <h5>
         Plateforme d'entraide contre l'épidémie du COVID-19
       </h5>

@@ -10,12 +10,12 @@
       <br>
       <h5>Editeur</h5>
       <p>
-        Ministère de l'Europe et des Affaires étrangères
+        Paula Forteza députée des Français de l’étranger (Amérique latine et Caraïbes)
       </p>
       <br>
       <h5>Directeur de la publication</h5>
       <p>
-        Henri Verdier, ambassadeur de France pour le numérique.
+        Paula Forteza députée des Français de l’étranger (Amérique latine et Caraïbes)
       </p>
       <br>
       <h5>Hébergeur</h5>
