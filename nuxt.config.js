@@ -19,6 +19,31 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
+      },
+      {
+        hid: 'og:title',
+        name: 'og:title',
+        content: 'Solidarité des Français de l’étranger'
+      },
+      {
+        hid: 'og:type',
+        name: 'og:type',
+        content: 'siteweb'
+      },
+      {
+        hid: 'og:url',
+        name: 'og:url',
+        content: 'https://www.solidarite-fde.fr'
+      },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: 'https://www.solidarite-fde.fr/picto.jpg'
+      },
+      {
+        hid: 'og:local',
+        name: 'og:local',
+        content: 'fr'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
