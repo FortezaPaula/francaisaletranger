@@ -144,8 +144,6 @@
 
     data () {
       return {
-        geoloc: false,
-        pendingGeoloc: false,
         requestSend: false,
         localised: false,
         form: {
@@ -190,25 +188,21 @@
         },
         position: {
           latitude: {
-            required: requiredIf(function () {
-              return this.geoloc
-            })
+            required
+          },
+          longitude: {
+            required
           },
           pays: {
-            required: requiredIf(function () {
-              return !this.geoloc
-            })
+            required
+          },
+          ville: {
+            required
           }
         },
         cgu: {
           sameAs: sameAs(() => true)
         }
-      }
-    },
-
-    mounted () {
-      if ('geolocation' in navigator) {
-        this.geoloc = true
       }
     },
 
@@ -289,15 +283,6 @@
     color: green;
     font-weight: bold;
     font-size: 1.5rem;
-  }
-
-  .geoloc {
-    display: flex;
-    justify-content: center;
-
-    .position {
-      text-align: center;
-    }
   }
 
   .personal-data-input {
